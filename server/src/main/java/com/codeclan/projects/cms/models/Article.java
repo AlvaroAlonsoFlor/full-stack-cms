@@ -1,9 +1,14 @@
 package com.codeclan.projects.cms.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.sql.Clob;
 import java.sql.Date;
+import java.util.Calendar;
 
+@Entity
+@Table(name = "articles")
 public class Article {
 
     @Id
@@ -17,19 +22,21 @@ public class Article {
     private String lead;
 
     @Column(name = "body")
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
     private String body;
 
     @Column(name = "tag")
     private String tag;
 
     @Column(name = "date")
-    private Date date;
+    private Calendar date;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Article(String title, String lead, String body, String tag, Date date, User user) {
+    public Article(String title, String lead, String body, String tag, Calendar date, User user) {
         this.title = title;
         this.lead = lead;
         this.body = body;
@@ -81,11 +88,11 @@ public class Article {
         this.tag = tag;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

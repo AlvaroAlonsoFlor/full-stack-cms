@@ -10,9 +10,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.sql.Clob;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -35,8 +34,12 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user1);
         userRepository.save(user2);
 
-        Date date1 = new Date(2018, 12, 10);
-        Date date2 = new Date(2018, 11, 9);
+        Calendar date1 = Calendar.getInstance();
+        date1.set(2018,12,10);
+
+        Calendar date2 = Calendar.getInstance();
+        date2.set(2018,11,9);
+
 
 
         Article article1 = new Article ("Refuel", "Life Skills: Relaxing, Re-setting, Refuelling", "Cupcake ipsum dolor sit amet. Carrot cake muffin wafer caramels sweet roll lemon drops. Muffin tiramisu apple pie sesame snaps. Cotton candy jelly beans cotton candy chupa chups carrot cake liquorice powder donut tiramisu. Muffin powder cake chocolate chocolate cake tiramisu. Powder sweet roll apple pie biscuit oat cake cookie cake lemon drops lemon drops. Cotton candy sweet roll jujubes chocolate cake pie croissant cake icing topping. Dragée jelly-o topping cotton candy sesame snaps macaroon caramels. Candy canes cookie jelly. \n Macaroon bonbon pudding cotton candy croissant gummi bears danish sugar plum jelly-o. Lollipop bear claw chocolate cake. Chupa chups chocolate cake tart. Gummi bears sweet roll chocolate liquorice chocolate soufflé sesame snaps dessert. Jujubes dragée fruitcake lollipop. Sesame snaps cake topping. Apple pie sweet sweet chupa chups wafer ice cream halvah jelly chocolate bar. Bonbon soufflé ice cream pudding apple pie marzipan. \nTootsie roll ice cream tootsie roll icing tart chupa chups sweet pastry cookie. Powder cheesecake pastry. Cookie sesame snaps apple pie dragée pudding jelly beans. Chocolate bar biscuit cheesecake. Donut cheesecake cotton candy gummi bears toffee sweet cotton candy dessert lemon drops. Jelly-o lemon drops topping bonbon. Toffee jujubes tiramisu cotton candy. Sweet cake biscuit cheesecake oat cake. Muffin carrot cake lollipop lollipop macaroon pie muffin. Sweet roll chocolate bar powder pie jujubes candy canes bear claw.\nTopping carrot cake soufflé dragée. Toffee sesame snaps macaroon cupcake carrot cake jelly-o jelly beans chupa chups chupa chups. Chocolate cake apple pie pudding sugar plum. Fruitcake cake cotton candy. Oat cake caramels chocolate cake. Tootsie roll gingerbread dessert bonbon candy canes jelly beans jelly-o lollipop tart. Soufflé sweet pie candy canes candy. Ice cream cake jelly-o.\nCroissant pudding apple pie dessert candy canes cupcake candy tootsie roll dragée. Caramels topping liquorice cookie gummi bears croissant wafer pie cake. Sugar plum sweet soufflé candy sesame snaps. Jelly beans tart sweet gummies soufflé toffee chocolate. Croissant powder apple pie cupcake brownie. Jelly-o caramels topping cake. Soufflé bear claw toffee pudding brownie icing sugar plum tart tart" , "self-care", date1, user1);

@@ -13,4 +13,9 @@ public class CmsApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testSeedDB() {
+
+	}
+
 }
