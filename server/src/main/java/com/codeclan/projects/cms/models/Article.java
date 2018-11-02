@@ -17,7 +17,7 @@ public class Article {
     private String lead;
 
     @Column(name = "body")
-    private Clob body;
+    private String body;
 
     @Column(name = "tag")
     private String tag;
@@ -29,7 +29,7 @@ public class Article {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Article(String title, String lead, Clob body, String tag, Date date, User user) {
+    public Article(String title, String lead, String body, String tag, Date date, User user) {
         this.title = title;
         this.lead = lead;
         this.body = body;
@@ -65,11 +65,11 @@ public class Article {
         this.lead = lead;
     }
 
-    public Clob getBody() {
+    public String getBody() {
         return body;
     }
 
-    public void setBody(Clob body) {
+    public void setBody(String body) {
         this.body = body;
     }
 
