@@ -4,6 +4,7 @@ import com.codeclan.projects.cms.models.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -25,14 +26,18 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Article> articles;
 
-    public User(String name, String password, UserType type, List<Article> articles) {
+    public User(String name, String password, UserType type) {
         this.name = name;
         this.password = password;
         this.type = type;
-        this.articles = articles;
+        this.articles = new ArrayList<>();
     }
 
     public User() {
+    }
+
+    public void addArticle(Article article) {
+        articles.add(article);
     }
 
     public Long getId() {
