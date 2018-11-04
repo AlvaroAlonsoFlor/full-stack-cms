@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RepositoryRestResource(excerptProjection = EmbedUser.class)
-public interface ArticleRepository extends JpaRepository<Article, Long> ArticleRepositoryCustom {
+public interface ArticleRepository extends JpaRepository<Article, Long>, ArticleRepositoryCustom {
     List<Article> getArticlesByCategory(String tag);
 
 }
