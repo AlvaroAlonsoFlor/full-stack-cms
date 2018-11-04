@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import HomeNavBar from '../components/Home/HomeNavBar';
 
 export default class Home extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export default class Home extends Component {
     render() {
         return(
             <Fragment>
-                <h4>Here renders the HomeNavBar</h4>
+                <HomeNavBar />
                 <h4>Here renders the UsersList</h4>  
             </Fragment>
         );
