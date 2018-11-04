@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ArticleRepositoryCustom {
     List<Article> getArticlesByCategory(String tag);
+    List<Article> getAllArticlesSortedByDate();
 
 
 }

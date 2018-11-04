@@ -19,4 +19,9 @@ public class ArticleController {
         return articleRepository.getArticlesByCategory(tag);
     }
 
+    @GetMapping
+    public List<Article> getAllArticlesSorted() {
+        return articleRepository.getAllArticlesSortedByDate();
+    }
+
 }

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long>, ArticleRepositoryCustom {
     List<Article> getArticlesByCategory(String tag);
+    List<Article> getAllArticlesSortedByDate();
 }
