@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import HomeNavBar from '../components/Home/HomeNavBar';
+import UserList from '../components/Home/UserList';
+
 
 export default class Home extends Component {
     constructor(props) {
@@ -10,14 +12,19 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        // make request to users here
+        // We might be able to refactor this to a stateless function
+        //if we do the request in user list
+        //error, do we need the launch.json in .vscode?
+       fetch(`/localhost:8080/users`)
+            .then(response => response.json())
+            .then( users => this.setState({users: users}));
     }
 
     render() {
         return(
             <Fragment>
                 <HomeNavBar />
-                <h4>Here renders the UsersList</h4>  
+                <UserList users={this.state.users}/>  
             </Fragment>
         );
     }
