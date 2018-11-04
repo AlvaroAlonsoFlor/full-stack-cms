@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import Main from './containers/main';
+import Main from './containers/Main';
 
 class App extends Component {
   render() {
