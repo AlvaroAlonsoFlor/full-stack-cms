@@ -3,8 +3,6 @@ package com.codeclan.projects.cms.models;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.sql.Clob;
-import java.sql.Date;
 import java.util.Calendar;
 
 @Entity
