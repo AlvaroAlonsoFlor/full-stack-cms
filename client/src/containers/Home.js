@@ -15,7 +15,8 @@ export default class Home extends Component {
         // We might be able to refactor this to a stateless function
         //if we do the request in user list
         //error, do we need the launch.json in .vscode?
-       fetch(`/localhost:8080/users`)
+        //allow CORS?
+       fetch(`http://localhost:8080/users`)
             .then(response => response.json())
             .then( users => this.setState({users: users}));
     }
