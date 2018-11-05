@@ -13,12 +13,14 @@ class ArticleFilter extends Component {
     }
 
     handleUserChange(event) {
+        
         this.setState({filterName: event.target.value})
-        this.props.onFilters(event.target.value)
+        this.props.onFilterName(event.target.value)
+        console.log(this.props)
     }
     handleTagChange(event) {
         this.setState({filterTag: event.target.value})
-        this.props.onFilters(event.target.value)
+        this.props.onFilterTag(event.target.value)
     }
 
      render () {

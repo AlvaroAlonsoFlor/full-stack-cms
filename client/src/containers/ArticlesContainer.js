@@ -9,10 +9,10 @@ export default class ArticlesContainer extends Component {
         this.state = {
             articles: [],
             users: [],
-            tags: [],
-            filtered: false
+            tags: []
         }
-        this.handleFilters = this.handleFilters.bind(this); 
+        this.handleNameFilters = this.handleNameFilters.bind(this); 
+        this.handleTagFilters = this.handleTagFilters.bind(this); 
     }
 
     componentDidMount() {
@@ -50,17 +50,25 @@ export default class ArticlesContainer extends Component {
         this.filterUsers();
     }
 
-    handleFilters(value) {
-        
-         console.log(value)
-         
+    handleNameFilters(name) {
+        if (!name) {
+            return null;
+        }
+        this.filterUsers();
+    }
+
+    handleTagFilters(tag) {
+        const filterTagArticles = this.state.articles.filter((article) => {
+            return article.tag === tag
+        })
+        this.setState({articles: filterTagArticles})
     }
 
     render() {
         return(
             <Fragment>
             <HomeNavBar/>
-            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilters = {this.handleFilters}/>
+            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilterName = {this.handleNameFilters} onFilterTag = {this.handleTagFilters}/>
                 <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
                 <ArticlePreview articles = {this.state.articles}/>
             </Fragment>
