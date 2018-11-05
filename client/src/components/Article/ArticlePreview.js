@@ -1,9 +1,9 @@
-import React, {LinkHTMLAttributes} from 'react';
+import React, {Link} from 'react';
 
 const ArticlePreview = ({articles}) => {
   const articlePreviews = articles.map((article) => {
       return <div className = "articlePreviews" key = {article.id}>
-           {/* <h2><React.Link to = "/articles/{article.id}">{article.title}</React.Link></h2> */}
+           {/* <h2><Link to = "/articles/{article.id}">{article.title}</Link></h2> */}
            <h3>{article.lead}</h3>
            <h4>by {article.user.name} </h4>
       </div>
