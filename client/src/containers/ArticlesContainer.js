@@ -26,8 +26,10 @@ export default class ArticlesContainer extends Component {
         this.state.articles.map((article) => {
             if (!users.includes(article.user.name)) {
                 return users.push(article.user.name)}
+            return null;   
             }) 
-        return this.setState({users: users})
+        this.setState({users: users})
+        
     }
 
     filterTags() {
@@ -35,7 +37,8 @@ export default class ArticlesContainer extends Component {
         this.state.articles.map((article) => {
             
             if (!tags.includes(article.tag)) {
-                return tags.push(article.tag)}    
+                return tags.push(article.tag)}  
+            return null;      
         })
         this.setState({tags: tags})
     }
