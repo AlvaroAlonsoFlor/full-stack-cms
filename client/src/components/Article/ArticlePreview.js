@@ -1,10 +1,15 @@
-import React, {Link} from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArticlePreview = ({articles}) => {
   const articlePreviews = articles.map((article) => {
       return <div className = "articlePreviews" key = {article.id}>
-           {/* <h2><Link to = {{pathname: '/route, state: {article} } >{article.title}</Link></h2> */}
-           <h2>{article.title}</h2>
+      <Link to={{
+          pathname: `/articles/${article.id}`,
+          state: {
+              article: {article}
+          }
+          }}>{article.title}</Link>
            <h3>{article.lead}</h3>
            <h4>by {article.user.name} </h4>
       </div>

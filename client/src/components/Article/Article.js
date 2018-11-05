@@ -1,12 +1,14 @@
 import React from 'react';
 
-const Article = ({article}) => {
+const Article = (props) => {
+    // conso
+    const thisArticle = props.location.state.article.article;
     return (
         <div>
-        <h2>{article.title}</h2>
-        <h3>{article.lead}</h3>
-        <h4>{article.user.name}</h4>
-        <p>{article.body}</p>
+        <h2>{thisArticle.title}</h2>
+        <h3>{thisArticle.lead}</h3>
+        <h4>{thisArticle.user.name}</h4>
+        <p>{thisArticle.body}</p>
         </div>
 
     )
