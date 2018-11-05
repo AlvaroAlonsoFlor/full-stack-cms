@@ -12,7 +12,7 @@ export default class Main extends Component {
             <Router>
             <div>
                 <Route exact path='/' component={Home} />
-                <Route path='/user/:id' component={UserContainer} />
+                <Route path='/users/:id' component={UserContainer} />
                 <Route path='/articles' component={ArticlesContainer} />
             </div>
             </Router>

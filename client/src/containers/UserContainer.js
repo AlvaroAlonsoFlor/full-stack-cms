@@ -14,6 +14,11 @@ export default class UserContainer extends Component {
 
     componentDidMount() {
         // we use the id param for the request, props.id, pass idToRender
+        let url =  '/users/' + this.state.idToRender;
+        console.log(url);
+        fetch(url)
+            .then(request => request.json())
+            .then((data) => {this.setState({user: data})})
     }
 
     render() {
