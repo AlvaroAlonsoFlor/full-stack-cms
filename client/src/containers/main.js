@@ -4,6 +4,7 @@ import Home from './Home';
 import UserContainer from './UserContainer';
 import ArticlesContainer from './ArticlesContainer';
 import Article from '../components/Article/Article';
+import NewUserForm from '../components/Home/NewUserForm';
 
 
 export default class Main extends Component {
@@ -18,6 +19,7 @@ export default class Main extends Component {
                 <Route path='/articles' component={ArticlesContainer} />
                 <Route path ='articles/article' component= {Article} 
                 />
+                <Route path='/users/new' component={NewUserForm} />
             </div>
             </Router>
         );

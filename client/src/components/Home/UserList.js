@@ -1,9 +1,17 @@
 import React from 'react';
+import User from './User';
 
-const UserList = () => {
-    
+const UserList = ({users}) => {
+    console.log(users);
+    const userList = users.map((user, key) => {
+       return <User user={user} key={key}/>
+    });
+
+
     return (
-        <h3>rendering userlist...</h3>
+        <ul>
+            {userList}
+        </ul>
     )
 }
 
