@@ -26,7 +26,7 @@ export default class Home extends Component {
             <Fragment>
                 <HomeNavBar />
                 <UserList users={this.state.users}/>
-                <Link to='users/new'>Create new user</Link>  
+                <Link to='users/create/new'>Create new user</Link>  
             </Fragment>
         );
     }
