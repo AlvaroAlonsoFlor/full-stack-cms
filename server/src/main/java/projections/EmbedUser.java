@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 @Projection(name = "embedUser", types = Article.class)
 public interface EmbedUser {
+    Long getId();
     String getTitle();
     String getLead();
     String getBody();
