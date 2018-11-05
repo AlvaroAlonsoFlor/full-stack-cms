@@ -53,10 +53,15 @@ export default class ArticlesContainer extends Component {
     }
 
     handleNameFilters(name) {
-        if (!name) {
-            return null;
+        if (name === "all") {
+            const allArticles = this.state.articles
+            return this.setState({filteredarticles: allArticles})
         }
-        this.filterUsers();
+        const filterNameArticles = this.state.articles.filter((article) => {
+            return article.user.name === name
+        })
+        this.setState({filteredarticles: filterNameArticles})
+        
     }
 
     handleTagFilters(tag) {
