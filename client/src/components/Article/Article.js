@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../Article.css';
+import HomeNavBar from '../Home/HomeNavBar';
 
 const Article = (props) => {
    
@@ -9,6 +10,7 @@ const Article = (props) => {
       })
     return (
         <div>
+        <HomeNavBar/>
         <h2>{thisArticle.title}</h2>
         <h3>{thisArticle.lead}</h3>
         <h4>{thisArticle.user.name}</h4>
