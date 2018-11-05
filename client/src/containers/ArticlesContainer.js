@@ -60,7 +60,10 @@ export default class ArticlesContainer extends Component {
     }
 
     handleTagFilters(tag) {
-        
+        if (tag === "all") { 
+            const allArticles = this.state.articles
+            return this.setState({filteredarticles: allArticles})
+        }
         const filterTagArticles = this.state.articles.filter((article) => {
             return article.tag === tag
         })

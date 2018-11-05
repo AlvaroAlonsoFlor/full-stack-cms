@@ -34,12 +34,12 @@ class ArticleFilter extends Component {
             })
     return (
    <Fragment>
-       <select name="user-name-option"  value = {this.state.filterName}onChange = {this.handleUserChange}>
-           <option value = ""></option>
+       <select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
+           <option value = "all">All Users</option>
            {userOptions}
        </select>
        <select id="tag-option" onChange = {this.handleTagChange}>
-           <option value = ""></option>
+           <option value = "all">All Tags</option>
            {tagOptions}
        </select>
    </Fragment>
