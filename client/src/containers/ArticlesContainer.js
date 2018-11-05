@@ -9,8 +9,10 @@ export default class ArticlesContainer extends Component {
         this.state = {
             articles: [],
             users: [],
-            tags: []
-        } 
+            tags: [],
+            filtered: false
+        }
+        this.handleFilters = this.handleFilters.bind(this); 
     }
 
     componentDidMount() {
@@ -48,11 +50,17 @@ export default class ArticlesContainer extends Component {
         this.filterUsers();
     }
 
+    handleFilters(value) {
+        
+         console.log(value)
+         
+    }
+
     render() {
         return(
             <Fragment>
             <HomeNavBar/>
-            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} />
+            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilters = {this.handleFilters}/>
                 <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
                 <ArticlePreview articles = {this.state.articles}/>
             </Fragment>
