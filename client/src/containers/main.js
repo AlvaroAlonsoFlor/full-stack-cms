@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
 import UserContainer from './UserContainer';
 import ArticlesContainer from './ArticlesContainer';
+import Article from '../components/Article/Article';
 
 
 export default class Main extends Component {
@@ -15,7 +16,8 @@ export default class Main extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/user/:id' component={UserContainer} />
                 <Route path='/articles' component={ArticlesContainer} />
-                <Route path ='article/:id' component= {Article} />
+                <Route path ='articles/article' component= {Article} 
+                />
             </div>
             </Router>
         );
