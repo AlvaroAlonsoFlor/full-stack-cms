@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Article = (props) => {
-    // conso
+   
     const thisArticle = props.location.state.article.article;
     return (
         <div>
