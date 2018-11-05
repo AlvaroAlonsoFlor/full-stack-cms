@@ -10,6 +10,9 @@ export default class ArticlesContainer extends Component {
 
     componentDidMount() {
         //fetch articles here
+        fetch('/articles')
+           .then(response => response.json())
+           .then( (data) => this.setState({articles: data})); 
     }
 
     render() {
