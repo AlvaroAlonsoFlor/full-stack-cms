@@ -15,7 +15,7 @@ class ArticleFilter extends Component {
     handleUserChange(event) {
         
         this.setState({filterName: event.target.value})
-        this.props.onFilterName(event.target.value)git 
+        this.props.onFilterName(event.target.value)
     }
     handleTagChange(event) {
         this.setState({filterTag: event.target.value})
