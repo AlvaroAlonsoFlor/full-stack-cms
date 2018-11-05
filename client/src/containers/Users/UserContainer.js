@@ -23,7 +23,7 @@ export default class UserContainer extends Component {
         return(
             <Fragment>
                 <h3>ID: {this.state.idToRender}</h3>
-                <UserNavBar name={this.state.user.name} id={this.state.user.id}/>
+                <UserNavBar name={this.state.user.name} id={this.state.idToRender}/>
                 <h4>Here renders UserInfo, remember to add the edit button linking to /user/id/edit</h4>
                 <h4>Here renders UserArticlesContainer</h4>
             </Fragment>
