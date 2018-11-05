@@ -17,7 +17,7 @@ export default class Home extends Component {
         
        fetch(`/users`)
             .then(response => response.json())
-            .then( users => this.setState({users: users}));
+            .then( users => this.setState({users: users._embedded.users}));
     }
 
     render() {

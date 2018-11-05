@@ -7,6 +7,7 @@ const HomeNavBar = (props) => {
         <ul>
             <li>
                 <Link to='/'>Home</Link>
+                <Link to='/articles'>Articles</Link>
             </li>
         </ul>
     );
