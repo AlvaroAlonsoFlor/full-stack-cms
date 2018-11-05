@@ -8,8 +8,10 @@ export default class ArticlesContainer extends Component {
         super(props);
         this.state = {
             articles: [],
+            filteredarticles: [],
             users: [],
             tags: []
+
         }
         this.handleNameFilters = this.handleNameFilters.bind(this); 
         this.handleTagFilters = this.handleTagFilters.bind(this); 
@@ -19,7 +21,7 @@ export default class ArticlesContainer extends Component {
         //fetch articles here
         fetch('/articles')
            .then(response => response.json())
-           .then( (data) => this.setState({articles: data}))
+           .then( (data) => this.setState({articles: data, filteredarticles: data}))
            .then(() => this.filterInfo());
     }
 
@@ -36,7 +38,7 @@ export default class ArticlesContainer extends Component {
 
     filterTags() {
         const tags = [];
-        this.state.articles.map((article) => {
+        this.state.filteredarticles.map((article) => {
             
             if (!tags.includes(article.tag)) {
                 return tags.push(article.tag)}  
@@ -58,10 +60,11 @@ export default class ArticlesContainer extends Component {
     }
 
     handleTagFilters(tag) {
+        
         const filterTagArticles = this.state.articles.filter((article) => {
             return article.tag === tag
         })
-        this.setState({articles: filterTagArticles})
+        this.setState({filteredarticles: filterTagArticles})
     }
 
     render() {
@@ -70,7 +73,7 @@ export default class ArticlesContainer extends Component {
             <HomeNavBar/>
             <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilterName = {this.handleNameFilters} onFilterTag = {this.handleTagFilters}/>
                 <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
-                <ArticlePreview articles = {this.state.articles}/>
+                <ArticlePreview articles = {this.state.filteredarticles}/>
             </Fragment>
         );
     }
