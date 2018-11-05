@@ -1,9 +1,13 @@
 import React from 'react';
 
-const User = () => {
+const User = ({user}) => {
+
+    const name = user.name;
+    const type = user.type;
+
     return (
         <li>
-            element!
+           {name}, {type}
         </li>
     )
 }
