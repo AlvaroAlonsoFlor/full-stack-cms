@@ -2,15 +2,16 @@ import React, {Fragment} from 'react';
 
 const ArticleFilter = ({userNames, tags}) => {
     const userOptions = userNames.map((name, index) => {
-        return <option key={index} >{name}</option>
+        return <option key={index} value={name} >{name}</option>
     })
 
     const tagOptions = tags.map((tag, index) => {
-        return <option key = {index}>{tag}</option>
+        return <option key = {index} value={tag}>{tag}</option>
     })
 
     return (
    <Fragment>
+       <form>
        <select id="user-name-option">
            <option value = ""></option>
            {userOptions}
@@ -19,7 +20,7 @@ const ArticleFilter = ({userNames, tags}) => {
            <option value = ""></option>
            {tagOptions}
        </select>
-       
+       </form>
    </Fragment>
     )
 }
