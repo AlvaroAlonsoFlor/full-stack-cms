@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import ArticlePreview from '../components/Article/ArticlePreview';
 
 export default class ArticlesContainer extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ export default class ArticlesContainer extends Component {
         return(
             <Fragment>
                 <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
-                <h4>Render here all Articles(Preview). On Click will go to Article, route /articles/:id</h4> 
+                <ArticlePreview articles = {this.state.articles}/>
             </Fragment>
         );
     }
