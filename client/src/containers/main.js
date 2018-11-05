@@ -13,9 +13,9 @@ export default class Main extends Component {
             <Router>
             <div>
                 <Route exact path='/' component={Home} />
-                <Route path='/users/:id' component={UserContainer} />
-                <Route path='/articles' component={ArticlesContainer} />
-                <Route path='/users/new' component={NewUserForm} />
+                <Route exact path='/users/:id' component={UserContainer} />
+                <Route exact path='/articles' component={ArticlesContainer} />
+                <Route exact path='/users/create/new' component={NewUserForm} />
             </div>
             </Router>
         );
