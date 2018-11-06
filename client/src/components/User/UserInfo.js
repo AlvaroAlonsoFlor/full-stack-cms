@@ -6,9 +6,10 @@ const UserInfo = (props) => {
     return (
 
         <div className="user-info">
-            {/* <h4 className="user-name">{this.state.user.name}</h4> */}
+            <h4 className="user-name">{props.user.name}</h4>
             <Link to={userEditUrl}>Edit User</Link>
-            <button type="button">Delete User</button>        </div>
+            <button type="button">Delete User</button>
+        </div>
         );
 }
 

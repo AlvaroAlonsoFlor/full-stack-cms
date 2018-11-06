@@ -1,16 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const User = (props) => {
+    const User = ({user}) => {
+        const name = user.name;
+        const type = user.type;
+        const path = `/users/${user.id}`
 
-    const name = props.user.name;
-    const type = props.user.type;
-    const path = `/users/${props.user.id}`
 
     return (
+        
         <li>
-            <Link to={path}>{name}, {type}</Link>
-           
+            <Link to={{
+                pathname: path,
+                state: { 
+                    user: {user}
+                }
+            }}>
+                {name}, {type}
+            </Link>
         </li>
     )
 }

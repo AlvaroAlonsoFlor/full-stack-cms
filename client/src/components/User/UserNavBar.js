@@ -2,21 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserNavBar = (props) => {
-    let userUrl = '/users/' + props.id;
+    const userUrl = '/users/' + props.user.id;
 
     return (
-        <ul>
-            <li>
-                <Link to='/'>Home</Link>
-            </li>
-            <li>
-                <Link to={userUrl}>{props.name}</Link>
-            </li>
-            <li>
-                <Link to='/articles'>All Articles</Link>
-            </li>
-        </ul>
-    );
+        <div>
+            <ul>
+                <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
+                    <Link to={userUrl}>{props.user.name}</Link>
+                </li>
+                <li>
+                    <Link to='/articles'>All Articles</Link>
+                </li>
+            </ul>
+            <p>bla</p>
+        </div>
+    )
 }
 
 export default UserNavBar;
