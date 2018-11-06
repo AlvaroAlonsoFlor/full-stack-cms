@@ -10,6 +10,7 @@ const UserContainer = (props) => {
         <Fragment>
             <UserNavBar user={user} />
             <UserInfo user={user} />
+            <h4>Here renders UserInfo, remember to add the edit button linking to /user/id/edit</h4>
             <UserArticlesContainer articles={user._embedded} />
         </Fragment>
     )
