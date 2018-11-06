@@ -6,13 +6,17 @@ class Request {
     }
 
     post(url, payload) {
+        console.log('is trying hard', url, payload);
         return fetch(url, {
             method: "POST",
             headers: {
+                "Accept": "application/json",
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         })
+        .then((res) => console.log(res))
+        .catch(err => console.log(err))
     }
 
     delete(url) {

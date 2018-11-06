@@ -19,7 +19,7 @@ public class ArticleController {
         return articleRepository.getArticlesByCategory(tag);
     }
 
-    @GetMapping
+    @GetMapping(value = "/sorted")
     public List<Article> getAllArticlesSorted() {
         return articleRepository.getAllArticlesSortedByDate();
     }

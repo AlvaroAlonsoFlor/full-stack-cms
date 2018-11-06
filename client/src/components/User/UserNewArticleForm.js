@@ -85,7 +85,6 @@ export default class UserNewArticleForm extends Component {
     }
 
     render() {
-        console.log(this.props.location.state.user.user);
         
         return(
             <div>
