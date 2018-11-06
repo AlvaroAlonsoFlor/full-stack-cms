@@ -1,18 +1,19 @@
 import React from 'react';
-import ArticlePreview from '../../components/Article/ArticlePreview';
+import UserArticlePreview from '../../components/User/UserArticlePreview';
 
-const UserArticlesContainer = ({articles}) => {
 
-    if (!articles) {
+const UserArticlesContainer = ({user}) => {
+    if (!user._embedded) {
         return null
+        
     }
 
-
-
+    const articles = user._embedded.articles;
+    //remember to add delete button here
     return (
         <div>
             <h3>We will need to add another ArticlePreview leading to edit</h3>
-             <ArticlePreview articles={articles.articles} />
+             <UserArticlePreview articles={articles} user={user} />
         </div>
        
 
