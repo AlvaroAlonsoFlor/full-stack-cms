@@ -55,13 +55,19 @@ export default class ArticlesContainer extends Component {
 
     handleFiltersFromMenu(name, tag) {
         //recieve filter info back from menu
-        //set filtered articles to all articles
         const allArticles = this.state.articles
-        this.setState({filteredarticles: allArticles})
+        //callback to make sure this.setState has finished first
+        return this.setState({filteredarticles: allArticles}, () => {
+            this.theFinalFilter(name, tag)
+        })
+    }
+
+    theFinalFilter(name, tag) {
         const firstResults = this.handleNameFiltersFromMenu(name) 
         const filteredResults= this.handleSecondFilterFromMenu(tag, firstResults)
         this.setState({filteredarticles: filteredResults})
     }
+
 
     handleNameFiltersFromMenu(name) {
         if (name === "all") {

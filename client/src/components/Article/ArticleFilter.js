@@ -38,7 +38,7 @@ class ArticleFilter extends Component {
             })
     return (
    <Fragment>
-       <form id="filter-form">
+       <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
        <select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
            <option value = "all">All Users</option>
            {userOptions}
@@ -47,7 +47,7 @@ class ArticleFilter extends Component {
            <option value = "all">All Tags</option>
            {tagOptions}
        </select>
-       <button type="submit" form="filter-form" value="Submit" onSubmit = {this.handleSubmitFilter}>Submit</button>
+       <button type="submit" form="filter-form" >Submit</button>
        </form>
    </Fragment>
     )
