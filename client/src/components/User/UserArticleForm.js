@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Request from '../../helpers/Request';
 
 export default class UserArticleForm extends Component {
 
@@ -26,8 +27,28 @@ export default class UserArticleForm extends Component {
     }
 
     handleBodyChange(event) {
-        console.log('change in body', event.target.value);
         this.setState({body: event.target.value})
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const title = this.state.title.trim();
+        const lead = this.state.lead.trim();
+        const body = this.state.body.trim();
+        if (!title || !lead || !body) {
+            return
+        }
+        //patch request
+        const id = this.props.location.state.article.article.id
+        const request = new Request()
+        request.patch(`articles/${id}`,{
+            "title": title,
+            "lead": lead,
+            "body": body
+        })
+        //redirect
+        });
+
     }
 
     render() {
