@@ -37,18 +37,28 @@ export default class UserContainer extends Component {
 
     componentDidMount() {
         if (this.props.location.state) {
-            return this.setState({user: this.props.location.state.user.user})
+            this.setState({user: this.props.location.state.user.user})
+            // optional ?
+            // this.setState({filteredArticles: this.props.location.state.user.user.articles})
         }
+
+        //loads if it doesn't have the info
         else {
         let url = '/users/' + this.state.idToRender + '?projection=embedArticle';
         fetch(url)
             .then(request => request.json())
-            .then((data) => {this.setState({user: data})})
+            .then((data) => {
+                this.setState({filteredArticles: data.articles})
+                return this.setState({user: data})})
+            
+            
         }
         
     }
 
     render() {
+
+        console.log('filtered articles:', this.state.filteredArticles);
 
         return(
             
