@@ -25,7 +25,7 @@ public class User {
     private UserType type;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Article> articles;
 
     public User(String name, String password, UserType type) {
