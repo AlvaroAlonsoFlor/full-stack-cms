@@ -19,7 +19,7 @@ export default class ArticlesContainer extends Component {
 
     componentDidMount() {
         //fetch articles here
-        fetch('/articles')
+        fetch('/articles/sorted')
            .then(response => response.json())
            .then( (data) => this.setState({articles: data, filteredarticles: data}))
            .then(() => this.filterInfoToSendForSelectMenu());
