@@ -30,11 +30,13 @@ class ArticleFilter extends Component {
      render () {
      
             const userOptions = this.props.userNames.map((name, index) => {
-                return <option select= "user-name-option" key={index} value={name} >{name}</option>
+                const uppercaseName = name.charAt(0).toUpperCase() + name.slice(1); 
+                return <option select= "user-name-option" key={index} value={name} >{uppercaseName}</option>
             })
         
             const tagOptions = this.props.tags.map((tag, index) => {
-                return <option key = {index} value={tag}>{tag}</option>
+                const uppercaseTag = tag.charAt(0).toUpperCase() + tag.slice(1); 
+                return <option key = {index} value={tag}>{uppercaseTag}</option>
             })
     return (
    <Fragment>
