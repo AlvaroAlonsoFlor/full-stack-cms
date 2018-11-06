@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserArticlePreview = ({articles, url}) => {
+const UserArticlePreview = ({articles, user}) => {
     
   const articlePreviews = articles.map((article) => {
    
 
       return <div className = "articlePreviews" key = {article.id}>
       <Link to={{
-          pathname: `/articles/edit/${article.id}`,
+          pathname: `${user.id}/articles/edit/${article.id}`,
           state: {
               article: {article}
           }
