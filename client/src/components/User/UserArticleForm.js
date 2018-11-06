@@ -6,6 +6,9 @@ export default class UserArticleForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: this.props.location.state.article.article.title, // do we pass the props?
+            lead: this.props.location.state.article.article.lead,
+            body: this.props.location.state.article.article.body
 
         }
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -14,21 +17,20 @@ export default class UserArticleForm extends Component {
         
     }
 
-    handleTitleChange() {
-
+    handleTitleChange(event) {
+        this.setState({title: event.target.value})
     }
 
-    handleLeadChange() {
-
+    handleLeadChange(event) {
+        this.setState({lead: event.target.value})
     }
 
-    handleBodyChange() {
-
+    handleBodyChange(event) {
+        console.log('change in body', event.target.value);
+        this.setState({body: event.target.value})
     }
 
     render() {
-        const user = this.props.location.state.user.user;
-        const article = this.props.location.state.article.article;
 
 
         //we need to pass same name, and date, check if we update, patch request should handle it
@@ -38,11 +40,11 @@ export default class UserArticleForm extends Component {
             <div>
                 <form className='edit-article-form'>
                     <label>Title</label>
-                    <input type="text" name="title" value={article.title} onChange={this.handleTitleChange}/>
+                    <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
                     <label>Lead</label>
-                    <input type="text" name="lead" value={article.lead} onChange={this.handleLeadChange}/>
+                    <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
                     <label>Body</label>
-                    <textarea type="text" name="body" value={article.body} onChange={this.handleBodyChange}/>
+                    <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
                     
                     <button type="submit">Edit article</button>
                 
