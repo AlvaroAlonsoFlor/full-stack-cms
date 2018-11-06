@@ -19,6 +19,7 @@ export default class Main extends Component {
                 <Route exact path='/articles' component={ArticlesContainer} />
                 <Route exact path ='/articles/:id' component= {Article} />
                 <Route exact path='/users/create/new' component={NewUserForm} />
+                <Route exact path='/users/:id/articles/edit/:id' component={Home} />
 
             </div>
             </Router>
