@@ -5,7 +5,7 @@ const ArticlePreview = ({articles}) => {
    
     
   const articlePreviews = articles.map((article) => {
-      return <div className = "articlePreviews" key = {article.id}>
+      return <div className = "articlePreviews" key = {article.id }>
       <Link to={{
           pathname: `/articles/${article.id}`,
           state: {
