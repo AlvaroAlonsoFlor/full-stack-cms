@@ -10,7 +10,6 @@ const UserArticlesContainer = ({user}) => {
         
     }
 
-    const articles = user.articles;
  
 
     return (
@@ -21,7 +20,7 @@ const UserArticlesContainer = ({user}) => {
               user: {user}
           }
           }}>Write a new article</Link>
-             <UserArticlePreview articles={articles} user={user} />
+             <UserArticlePreview  user={user} />
         </div>
        
 
