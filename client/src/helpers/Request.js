@@ -22,6 +22,7 @@ class Request {
         return fetch(url, {
             method: "DELETE",
             headers: {
+                "Accept": "application/json",
                 'Content-Type': 'application/json'
             }
         })

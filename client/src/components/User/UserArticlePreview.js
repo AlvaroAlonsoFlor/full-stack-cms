@@ -17,7 +17,7 @@ const UserArticlePreview = ({user}) => {
           state: {
               article: {article},
               user: {user}
-          }
+            }
           }}>{article.title}</Link>
            <h3>{article.lead}</h3>
            <h4>by {user.name} </h4>
