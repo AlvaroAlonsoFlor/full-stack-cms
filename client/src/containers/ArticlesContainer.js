@@ -13,8 +13,8 @@ export default class ArticlesContainer extends Component {
             tags: []
 
         }
-        this.handleNameFilters = this.handleNameFilters.bind(this); 
-        this.handleTagFilters = this.handleTagFilters.bind(this); 
+        this.handleFiltersFromMenu = this.handleFiltersFromMenu.bind(this); 
+       
     }
 
     componentDidMount() {
@@ -22,10 +22,10 @@ export default class ArticlesContainer extends Component {
         fetch('/articles')
            .then(response => response.json())
            .then( (data) => this.setState({articles: data, filteredarticles: data}))
-           .then(() => this.filterInfo());
+           .then(() => this.filterInfoToSendForSelectMenu());
     }
 
-    filterUsers() {
+    filterUsersForSelectMenu() {
         const users = [];
         this.state.articles.map((article) => {
             if (!users.includes(article.user.name)) {
@@ -36,7 +36,7 @@ export default class ArticlesContainer extends Component {
         
     }
 
-    filterTags() {
+    filterTagsForSelectMenu() {
         const tags = [];
         this.state.filteredarticles.map((article) => {
             
@@ -47,40 +47,53 @@ export default class ArticlesContainer extends Component {
         this.setState({tags: tags})
     }
 
-    filterInfo() {
-        this.filterTags();
-        this.filterUsers();
+    filterInfoToSendForSelectMenu() {
+        //filter info to label select menu
+        this.filterTagsForSelectMenu();
+        this.filterUsersForSelectMenu();
     }
 
-    handleNameFilters(name) {
+    handleFiltersFromMenu(name, tag) {
+        //recieve filter info back from menu
+        const allArticles = this.state.articles
+        //callback to make sure this.setState has finished first
+        return this.setState({filteredarticles: allArticles}, () => {
+            this.theFinalFilter(name, tag)
+        })
+    }
+
+    theFinalFilter(name, tag) {
+        const firstResults = this.handleNameFiltersFromMenu(name) 
+        const filteredResults= this.handleSecondFilterFromMenu(tag, firstResults)
+        this.setState({filteredarticles: filteredResults})
+    }
+
+
+    handleNameFiltersFromMenu(name) {
         if (name === "all") {
-            const allArticles = this.state.articles
-            return this.setState({filteredarticles: allArticles})
+            return this.state.articles;
         }
-        const filterNameArticles = this.state.articles.filter((article) => {
+        const previousResults = this.state.filteredarticles.filter((article) => {        
             return article.user.name === name
         })
-        this.setState({filteredarticles: filterNameArticles})
-        
+     return previousResults;
     }
 
-    handleTagFilters(tag) {
-        if (tag === "all") { 
-            const allArticles = this.state.articles
-            return this.setState({filteredarticles: allArticles})
+    handleSecondFilterFromMenu(tag, previousResults) {
+        if (tag === "all") {
+            return previousResults;
         }
-        const filterTagArticles = this.state.articles.filter((article) => {
+        const filteredArticles = previousResults.filter((article) => {
             return article.tag === tag
         })
-        this.setState({filteredarticles: filterTagArticles})
+       return filteredArticles;
     }
 
     render() {
         return(
             <Fragment>
             <HomeNavBar/>
-            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilterName = {this.handleNameFilters} onFilterTag = {this.handleTagFilters}/>
-                <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
+            <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilter = {this.handleFiltersFromMenu} />
                 <ArticlePreview articles = {this.state.filteredarticles}/>
             </Fragment>
         );
