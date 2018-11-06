@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
+import {Redirect} from 'react-router-dom';
 
 export default class UserArticleForm extends Component {
 
@@ -7,14 +8,18 @@ export default class UserArticleForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.location.state.article.article.title, // do we pass the props?
+            title: this.props.location.state.article.article.title,
             lead: this.props.location.state.article.article.lead,
-            body: this.props.location.state.article.article.body
+            body: this.props.location.state.article.article.body,
+
+            redirectNow: false
 
         }
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleLeadChange = this.handleLeadChange.bind(this);
         this.handleBodyChange = this.handleBodyChange.bind(this);
+        this.handleRedirect = this.handleRedirect.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         
     }
 
@@ -38,28 +43,39 @@ export default class UserArticleForm extends Component {
         if (!title || !lead || !body) {
             return
         }
-        //patch request
+        
         const id = this.props.location.state.article.article.id
         const request = new Request()
-        request.patch(`articles/${id}`,{
+        request.patch(`/articles/${id}`,{
             "title": title,
             "lead": lead,
             "body": body
         })
-        //redirect
-        });
+            .then(() => this.setState({redirectNow: true}))
 
+        
+        
+
+    }
+
+    handleRedirect() {
+        
+        const userId = this.props.location.state.user.user.id
+        if (this.state.redirectNow) {
+            
+            return <Redirect to={`/users/${userId}`} />
+        }
+
+        return null
     }
 
     render() {
 
-
-        //we need to pass same name, and date, check if we update, patch request should handle it
-        //remember onSubmit on form
+        //try what happens if we add a tag field and we modify(changes on the dropdown for articles?)
 
         return(
             <div>
-                <form className='edit-article-form'>
+                <form className='edit-article-form' onSubmit={this.handleSubmit}>
                     <label>Title</label>
                     <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
                     <label>Lead</label>
@@ -68,8 +84,9 @@ export default class UserArticleForm extends Component {
                     <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
                     
                     <button type="submit">Edit article</button>
-                
+                    {this.handleRedirect()}
                 </form>
+                
             </div>
         );
     }
