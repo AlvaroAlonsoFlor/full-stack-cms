@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserArticlePreview = ({user}) => {
+    console.log('user in preview', user);
   if (!user.articles) {
       return null;
   }
+  
   const articles = user.articles
   
   const articlePreviews = articles.map((article) => {
-      console.log(article)
+      
       return <div className = "userArticlePreviews" key={article.title}>
       <Link to={{
           pathname: `${user.id}/articles/edit/${article.id}`,
@@ -23,6 +25,7 @@ const UserArticlePreview = ({user}) => {
   })
 
   //remember to add delete button here
+  console.log('articlePreviews', articlePreviews);
   return(
       <div>
       <h1>Articles</h1>

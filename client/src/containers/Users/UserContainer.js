@@ -19,7 +19,7 @@ export default class UserContainer extends Component {
             return this.setState({user: this.props.location.state.user.user})
         }
         else {
-        let url =  '/users/' + this.state.idToRender;
+        let url = '/users/' + this.state.idToRender + '?projection=embedArticle';
         fetch(url)
             .then(request => request.json())
             .then((data) => {this.setState({user: data})})
@@ -28,7 +28,8 @@ export default class UserContainer extends Component {
     }
 
     render() {
-        
+
+        console.log(this.state.user);
         return(
             
             <Fragment>
