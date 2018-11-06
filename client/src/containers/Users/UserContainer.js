@@ -26,6 +26,7 @@ export default class UserContainer extends Component {
             })
 
             this.setState({filteredArticles: filteredArticles})
+            console.log('rerender');
         }
 
 
@@ -63,7 +64,7 @@ export default class UserContainer extends Component {
             <Fragment>
                 <UserNavBar user={this.state.user} /> 
                 <UserInfo user={this.state.user} />
-                <UserArticlesContainer user={this.state.user} onFilter={this.handleTagFilter} /> 
+                <UserArticlesContainer user={this.state.user} articlesFiltered={this.state.filteredArticles} onFilter={this.handleTagFilter} /> 
             </Fragment>
         )
     }

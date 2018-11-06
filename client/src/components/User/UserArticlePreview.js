@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserArticlePreview = ({user}) => {
+const UserArticlePreview = ({user, articles}) => {
   if (!user.articles) {
       return null;
   }
-  
-  const articles = user.articles
   
   const articlePreviews = articles.map((article) => {
       
