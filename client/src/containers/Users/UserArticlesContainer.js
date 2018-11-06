@@ -8,11 +8,15 @@ const UserArticlesContainer = ({user}) => {
         
     }
 
-    const articles = user._embedded.articles;
-    //remember to add delete button here
+    //pass the user
     return (
         <div>
-            <h3>We will need to add another ArticlePreview leading to edit</h3>
+            <Link to={{
+          pathname: `${user.id}/articles/new`,
+          state: {
+              user: {user}
+          }
+          }}>Write a new article</Link>
              <UserArticlePreview articles={articles} user={user} />
         </div>
        

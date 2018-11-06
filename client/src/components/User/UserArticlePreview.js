@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserArticlePreview = ({articles, user}) => {
-    
+
   const articlePreviews = articles.map((article) => {
    
       return <div className = "articlePreviews" key = {article.id}>
@@ -18,6 +18,7 @@ const UserArticlePreview = ({articles, user}) => {
       </div>
   })
 
+  //remember to add delete button here
   return(
       <div>
       <h1>Articles</h1>

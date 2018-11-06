@@ -11,6 +11,7 @@ export default class UserArticleForm extends Component {
             title: this.props.location.state.article.article.title,
             lead: this.props.location.state.article.article.lead,
             body: this.props.location.state.article.article.body,
+            tag: this.props.location.state.article.article.tag,
 
             redirectNow: false
 
@@ -18,6 +19,7 @@ export default class UserArticleForm extends Component {
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleLeadChange = this.handleLeadChange.bind(this);
         this.handleBodyChange = this.handleBodyChange.bind(this);
+        this.handleTagChange = this.handleTagChange.bind(this);
         this.handleRedirect = this.handleRedirect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         
@@ -35,11 +37,16 @@ export default class UserArticleForm extends Component {
         this.setState({body: event.target.value})
     }
 
+     handleTagChange(event) {
+        this.setState({tag: event.target.value})
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         const title = this.state.title.trim();
         const lead = this.state.lead.trim();
         const body = this.state.body.trim();
+        const tag = this.state.tag.trim();
         if (!title || !lead || !body) {
             return
         }
@@ -49,7 +56,8 @@ export default class UserArticleForm extends Component {
         request.patch(`/articles/${id}`,{
             "title": title,
             "lead": lead,
-            "body": body
+            "body": body,
+            "tag": tag
         })
             .then(() => this.setState({redirectNow: true}))
 
@@ -82,6 +90,8 @@ export default class UserArticleForm extends Component {
                     <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
                     <label>Body</label>
                     <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
+                    <label>Tag</label>
+                    <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
                     
                     <button type="submit">Edit article</button>
                     {this.handleRedirect()}
