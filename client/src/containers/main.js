@@ -5,6 +5,7 @@ import UserContainer from './Users/UserContainer';
 import ArticlesContainer from './ArticlesContainer';
 import Article from '../components/Article/Article';
 import NewUserForm from '../components/Home/NewUserForm';
+import UserArticleForm from '../components/User/UserArticleForm';
 
 
 export default class Main extends Component {
@@ -19,7 +20,7 @@ export default class Main extends Component {
                 <Route exact path='/articles' component={ArticlesContainer} />
                 <Route exact path ='/articles/:id' component= {Article} />
                 <Route exact path='/users/create/new' component={NewUserForm} />
-                <Route exact path='/users/:id/articles/edit/:id' component={Home} />
+                <Route exact path='/users/:id/articles/edit/:id' component={UserArticleForm} />
 
             </div>
             </Router>

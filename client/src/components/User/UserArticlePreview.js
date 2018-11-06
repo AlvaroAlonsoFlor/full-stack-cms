@@ -10,7 +10,8 @@ const UserArticlePreview = ({articles, user}) => {
       <Link to={{
           pathname: `${user.id}/articles/edit/${article.id}`,
           state: {
-              article: {article}
+              article: {article},
+              user: {user}
           }
           }}>{article.title}</Link>
            <h3>{article.lead}</h3>

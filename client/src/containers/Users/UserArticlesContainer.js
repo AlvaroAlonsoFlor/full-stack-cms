@@ -9,7 +9,7 @@ const UserArticlesContainer = ({user}) => {
     }
 
     const articles = user._embedded.articles;
-
+    //remember to add delete button here
     return (
         <div>
             <h3>We will need to add another ArticlePreview leading to edit</h3>
