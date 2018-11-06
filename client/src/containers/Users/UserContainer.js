@@ -23,7 +23,7 @@ export default class UserContainer extends Component {
             console.log('this.state.user.articles', this.state.user.articles);
             this.setState({filteredArticles: this.state.user.articles})
         } else {
-            const filteredArticles = this.user.articles.filter((article) => {
+            const filteredArticles = this.state.user.articles.filter((article) => {
                 return article.tag === filterName
             })
 
