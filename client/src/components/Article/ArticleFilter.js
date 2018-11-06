@@ -5,21 +5,26 @@ class ArticleFilter extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            filterName: '',
-            filterTag: ''
+            filterName: 'all',
+            filterTag: 'all'
         };
         this.handleUserChange = this.handleUserChange.bind(this);
         this.handleTagChange = this.handleTagChange.bind(this);
+        this.handleSubmitFilter = 
+        this.handleSubmitFilter.bind(this);
     }
 
     handleUserChange(event) {
-        
-        this.setState({filterName: event.target.value})
-        this.props.onFilterName(event.target.value)git 
+        this.setState({filterName: event.target.value}) 
     }
+
     handleTagChange(event) {
         this.setState({filterTag: event.target.value})
-        this.props.onFilterTag(event.target.value)
+    }
+
+    handleSubmitFilter(event) {
+        event.preventDefault();
+        this.props.onFilter(this.state.filterName, this.state.filterTag);   
     }
 
      render () {
@@ -33,6 +38,7 @@ class ArticleFilter extends Component {
             })
     return (
    <Fragment>
+       <form id="filter-form">
        <select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
            <option value = "all">All Users</option>
            {userOptions}
@@ -41,6 +47,8 @@ class ArticleFilter extends Component {
            <option value = "all">All Tags</option>
            {tagOptions}
        </select>
+       <button type="submit" form="filter-form" value="Submit" onSubmit = {this.handleSubmitFilter}>Submit</button>
+       </form>
    </Fragment>
     )
 }
