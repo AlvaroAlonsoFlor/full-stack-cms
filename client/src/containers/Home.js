@@ -18,12 +18,13 @@ export default class Home extends Component {
         
        fetch(`/users`)
             .then(response => response.json())
-            .then( users => this.setState({users: users._embedded.users}));
+            .then( users => this.setState({users: users._embedded}));
     }
 
     render() {
         return(
             <Fragment>
+            {console.log(this.state.users)}
                 <HomeNavBar />
                 <UserList users={this.state.users}/>
                 <Link to='users/create/new'>Create new user</Link>  
