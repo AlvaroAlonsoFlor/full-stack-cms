@@ -56,17 +56,13 @@ export default class UserNewArticleForm extends Component {
 
         const user = this.props.location.state.user.user
         const request = new Request()
-        request.post(`/articles`,{
+        request.post('/articles', {
             "title": title,
             "lead": lead,
             "body": body,
             "tag": tag,
             "date": new Date(),
-            // "user": {
-            //     "name": user.name,
-            //     "password": user.password,
-            //     "type": user.type
-            // }
+            "user": user._links.self.href
             //`${year}-${month}-${day}T10:40:27.789+0000`
             // date "2019-01-10T10:40:27.789+0000"
         })
