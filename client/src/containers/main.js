@@ -7,6 +7,7 @@ import Article from '../components/Article/Article';
 import NewUserForm from '../components/Home/NewUserForm';
 import UserArticleForm from '../components/User/UserArticleForm';
 import UserNewArticleForm from '../components/User/UserNewArticleForm';
+import UserEditForm from '../components/User/UserEditForm';
 
 
 export default class Main extends Component {
@@ -23,6 +24,7 @@ export default class Main extends Component {
                 <Route exact path='/users/create/new' component={NewUserForm} />
                 <Route exact path='/users/:id/articles/edit/:id' component={UserArticleForm} />
                 <Route exact path='/users/:id/articles/new' component={UserNewArticleForm} />
+                <Route exact path='/users/:id/edit' component={UserEditForm} />
 
             </div>
             </Router>

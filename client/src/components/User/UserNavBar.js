@@ -17,7 +17,6 @@ const UserNavBar = (props) => {
                     <Link to='/articles'>All Articles</Link>
                 </li>
             </ul>
-            <p>bla</p>
         </div>
     )
 }
