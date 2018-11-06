@@ -6,6 +6,7 @@ const UserArticlePreview = ({user}) => {
   if (!user.articles ) {
       return null;
   }
+  
   const articles = user.articles
   
   const articlePreviews = articles.map((article) => {

@@ -79,9 +79,11 @@ export default class UserNewArticleForm extends Component {
         if (this.state.redirectNow) {
 
             return <Redirect to={`/users/${userId}`} />
+        } else {
+            return null
         }
 
-        return null
+        
     }
 
     render() {
