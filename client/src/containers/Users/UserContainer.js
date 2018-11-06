@@ -18,9 +18,7 @@ export default class UserContainer extends Component {
     }
 
     handleTagFilter(filterName) {
-        console.log(filterName);
         if (filterName === 'all') {
-            console.log('this.state.user.articles', this.state.user.articles);
             this.setState({filteredArticles: this.state.user.articles})
         } else {
             const filteredArticles = this.state.user.articles.filter((article) => {

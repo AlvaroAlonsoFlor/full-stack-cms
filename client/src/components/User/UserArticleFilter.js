@@ -33,7 +33,7 @@ export default class UserArticleFilter extends Component {
 
     handleTagChange(event) {
         this.setState({filterTag: event.target.value}) 
-        this.props.onFilter(this.state.filterTag)
+        this.props.onFilter(event.target.value)
     }
 
     render () {
@@ -44,11 +44,15 @@ export default class UserArticleFilter extends Component {
         const tagOptions = this.filterTagsForSelectMenu()
     
         return (
+            <div>
+                <label name="tag-filter">Filter by tag</label>
+                 <select id="tag-option" name="tag-filter" onChange = {this.handleTagChange}>
+                    <option value = "all">All Tags</option>
+                    {tagOptions}
+                </select> 
+            </div>
       
-            <select id="tag-option" onChange = {this.handleTagChange}>
-                <option value = "all">All Tags</option>
-                {tagOptions}
-            </select> 
+           
    
         )
 }
