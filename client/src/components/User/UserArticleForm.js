@@ -11,6 +11,8 @@ export default class UserArticleForm extends Component {
     }
 
     render() {
+        console.log(this.props);
+
         return(
             <h1>Here goes the form</h1>
         );
