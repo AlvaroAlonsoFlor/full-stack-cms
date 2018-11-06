@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ArticlePreview = ({articles}) => {
+   
+    
   const articlePreviews = articles.map((article) => {
       return <div className = "articlePreviews" key = {article.id}>
       <Link to={{
