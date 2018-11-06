@@ -22,7 +22,7 @@ export default class UserArticleForm extends Component {
         this.handleTagChange = this.handleTagChange.bind(this);
         this.handleRedirect = this.handleRedirect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+
     }
 
     handleTitleChange(event) {
@@ -50,7 +50,7 @@ export default class UserArticleForm extends Component {
         if (!title || !lead || !body) {
             return
         }
-        
+
         const id = this.props.location.state.article.article.id
         const request = new Request()
         request.patch(`/articles/${id}`,{
@@ -61,16 +61,16 @@ export default class UserArticleForm extends Component {
         })
             .then(() => this.setState({redirectNow: true}))
 
-        
-        
+
+
 
     }
 
     handleRedirect() {
-        
+
         const userId = this.props.location.state.user.user.id
         if (this.state.redirectNow) {
-            
+
             return <Redirect to={`/users/${userId}`} />
         }
 
@@ -92,11 +92,11 @@ export default class UserArticleForm extends Component {
                     <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
                     <label>Tag</label>
                     <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
-                    
+
                     <button type="submit">Edit article</button>
                     {this.handleRedirect()}
                 </form>
-                
+
             </div>
         );
     }

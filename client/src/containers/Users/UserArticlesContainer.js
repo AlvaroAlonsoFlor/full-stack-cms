@@ -1,14 +1,21 @@
 import React from 'react';
 import UserArticlePreview from '../../components/User/UserArticlePreview';
+import { Link } from 'react-router-dom';
 
 
 const UserArticlesContainer = ({user}) => {
-    if (!user._embedded) {
+    
+    // if (!user._embedded) {
+    if (!user) {
         return null
         
     }
 
-    //pass the user
+    // const articles = user._embedded.articles;
+    const articles = user.articles;
+    console.log(user);
+
+    //remember to add delete button here
     return (
         <div>
             <Link to={{
