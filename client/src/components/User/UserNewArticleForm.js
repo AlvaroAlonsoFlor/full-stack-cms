@@ -16,12 +16,12 @@ export default class UserNewArticleForm extends Component {
             redirectNow: false
 
         }
-        // this.handleTitleChange = this.handleTitleChange.bind(this);
-        // this.handleLeadChange = this.handleLeadChange.bind(this);
-        // this.handleBodyChange = this.handleBodyChange.bind(this);
-        // this.handleTagChange = this.handleTagChange.bind(this);
-        // this.handleRedirect = this.handleRedirect.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleLeadChange = this.handleLeadChange.bind(this);
+        this.handleBodyChange = this.handleBodyChange.bind(this);
+        this.handleTagChange = this.handleTagChange.bind(this);
+        this.handleRedirect = this.handleRedirect.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -52,13 +52,23 @@ export default class UserNewArticleForm extends Component {
         if (!title || !lead || !body) {
             return
         }
+        
 
+        const user = this.props.location.state.user.user
         const request = new Request()
         request.post(`/articles`,{
             "title": title,
             "lead": lead,
             "body": body,
-            "tag": tag
+            "tag": tag,
+            "date": new Date(),
+            // "user": {
+            //     "name": user.name,
+            //     "password": user.password,
+            //     "type": user.type
+            // }
+            //`${year}-${month}-${day}T10:40:27.789+0000`
+            // date "2019-01-10T10:40:27.789+0000"
         })
             .then(() => this.setState({redirectNow: true}))
 
@@ -79,9 +89,8 @@ export default class UserNewArticleForm extends Component {
     }
 
     render() {
-
-        //try what happens if we add a tag field and we modify(changes on the dropdown for articles?)
         console.log(this.props.location.state.user.user);
+        
         return(
             <div>
                 <form className='edit-article-form' onSubmit={this.handleSubmit}>
