@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserArticlePreview = ({user}) => {
-    console.log('user in preview', user);
   if (!user.articles) {
       return null;
   }
@@ -25,7 +24,6 @@ const UserArticlePreview = ({user}) => {
   })
 
   //remember to add delete button here
-  console.log('articlePreviews', articlePreviews);
   return(
       <div>
       <h1>Articles</h1>
