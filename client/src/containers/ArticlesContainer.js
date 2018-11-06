@@ -94,7 +94,6 @@ export default class ArticlesContainer extends Component {
             <Fragment>
             <HomeNavBar/>
             <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilter = {this.handleFiltersFromMenu} />
-                <h4>Filter here linking to /articles/filtered, which will fetch from the backend component or in this container</h4>
                 <ArticlePreview articles = {this.state.filteredarticles}/>
             </Fragment>
         );
