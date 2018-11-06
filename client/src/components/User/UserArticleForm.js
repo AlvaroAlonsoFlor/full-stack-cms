@@ -47,7 +47,6 @@ export default class UserArticleForm extends Component {
             "body": body
         })
         //redirect
-        });
 
     }
 

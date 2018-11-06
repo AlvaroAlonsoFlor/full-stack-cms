@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserInfo = (props) => {
-    let userEditUrl = '/users/' + props.id + '/edit';
+    let userEditUrl = '/users/' + props.user.id + '/edit';
     return (
 
         <div className="user-info">

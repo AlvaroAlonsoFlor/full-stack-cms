@@ -3,12 +3,18 @@ import UserArticlePreview from '../../components/User/UserArticlePreview';
 
 
 const UserArticlesContainer = ({user}) => {
-    if (!user._embedded) {
+    console.log(user);
+    
+    // if (!user._embedded) {
+    if (!user) {
         return null
         
     }
 
-    const articles = user._embedded.articles;
+    // const articles = user._embedded.articles;
+    const articles = user.articles;
+    console.log(articles);
+
     //remember to add delete button here
     return (
         <div>

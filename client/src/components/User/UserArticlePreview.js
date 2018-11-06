@@ -14,7 +14,7 @@ const UserArticlePreview = ({articles, user}) => {
           }
           }}>{article.title}</Link>
            <h3>{article.lead}</h3>
-           <h4>by {article.user.name} </h4>
+           <h4>by {user.name} </h4>
       </div>
   })
 
