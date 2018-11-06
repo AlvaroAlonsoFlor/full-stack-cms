@@ -6,7 +6,6 @@ class Request {
     }
 
     post(url, payload) {
-        console.log('is trying hard', url, payload);
         return fetch(url, {
             method: "POST",
             headers: {
@@ -22,6 +21,7 @@ class Request {
         return fetch(url, {
             method: "DELETE",
             headers: {
+                "Accept": "application/json",
                 'Content-Type': 'application/json'
             }
         })

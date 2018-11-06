@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserArticleDeleteButton from './UserArticleDeleteButton';
 
 const UserArticlePreview = ({user}) => {
   if (!user.articles) {
@@ -20,10 +21,11 @@ const UserArticlePreview = ({user}) => {
           }}>{article.title}</Link>
            <h3>{article.lead}</h3>
            <h4>by {user.name} </h4>
+           <h4>{article.tag}</h4>
+           <UserArticleDeleteButton user={user} article={article}/>
       </div>
   })
 
-  //remember to add delete button here
   return(
       <div>
       <h1>Articles</h1>
