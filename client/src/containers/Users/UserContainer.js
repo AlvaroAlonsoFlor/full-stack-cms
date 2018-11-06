@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import UserNavBar from '../../components/User/UserNavBar';
 import UserArticlesContainer from './UserArticlesContainer';
+import UserInfo from '../../components/User/UserInfo';
 
 export default class UserContainer extends Component {
 
@@ -26,6 +27,7 @@ export default class UserContainer extends Component {
             <Fragment>
                 <h3>ID: {this.state.idToRender}</h3>
                 <UserNavBar name={this.state.user.name} id={this.state.idToRender}/>
+                <UserInfo name={this.state.user.name}/>
                 <h4>Here renders UserInfo, remember to add the edit button linking to /user/id/edit</h4>
                 <UserArticlesContainer articles={this.state.user._embedded}/>
             </Fragment>
