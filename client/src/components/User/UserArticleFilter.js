@@ -33,11 +33,11 @@ export default class UserArticleFilter extends Component {
 
     handleTagChange(event) {
         this.setState({filterTag: event.target.value}) 
+        this.props.onFilter(this.state.filterTag)
     }
 
     render () {
-        // this.filterTagsForSelectMenu()
-        console.log(this.state.filterTag);
+        
         if (!this.props.articles) {
             return null
         }

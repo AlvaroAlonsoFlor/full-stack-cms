@@ -10,8 +10,29 @@ export default class UserContainer extends Component {
         super(props);
         this.state = {
             idToRender: this.props.match.params.id,
-            user: {}
+            user: {},
+            filteredArticles: null
         };
+
+        this.handleTagFilter = this.handleTagFilter.bind(this);
+    }
+
+    handleTagFilter(filterName) {
+        console.log(filterName);
+        if (filterName === 'all') {
+            console.log('this.state.user.articles', this.state.user.articles);
+            this.setState({filteredArticles: this.state.user.articles})
+        } else {
+            const filteredArticles = this.user.articles.filter((article) => {
+                return article.tag === filterName
+            })
+
+            this.setState({filteredArticles: filteredArticles})
+        }
+
+
+        
+
     }
 
     componentDidMount() {
@@ -34,7 +55,7 @@ export default class UserContainer extends Component {
             <Fragment>
                 <UserNavBar user={this.state.user} /> 
                 <UserInfo user={this.state.user} />
-                <UserArticlesContainer user={this.state.user} /> 
+                <UserArticlesContainer user={this.state.user} onFilter={this.handleTagFilter} /> 
             </Fragment>
         )
     }
