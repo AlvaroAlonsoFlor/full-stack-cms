@@ -5,7 +5,6 @@ const UserArticlePreview = ({articles, user}) => {
     
   const articlePreviews = articles.map((article) => {
    
-        console.log('user', user);
       return <div className = "articlePreviews" key = {article.id}>
       <Link to={{
           pathname: `${user.id}/articles/edit/${article.id}`,
