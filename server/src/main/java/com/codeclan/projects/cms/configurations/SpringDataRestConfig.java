@@ -5,13 +5,15 @@ import com.codeclan.projects.cms.models.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
+import projections.EmbedArticle;
+import projections.EmbedUser;
 
-    @Configuration
+@Configuration
     public class SpringDataRestConfig extends RepositoryRestConfigurerAdapter {
 
 
         @Override
         public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-            config.exposeIdsFor(Article.class, User.class);
+            config.exposeIdsFor(Article.class, User.class, EmbedArticle.class, EmbedUser.class);
         }
     }

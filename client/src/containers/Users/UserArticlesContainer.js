@@ -1,5 +1,6 @@
 import React from 'react';
 import UserArticlePreview from '../../components/User/UserArticlePreview';
+import { Link } from 'react-router-dom';
 
 
 const UserArticlesContainer = ({user}) => {
@@ -12,10 +13,14 @@ const UserArticlesContainer = ({user}) => {
     const articles = user.articles;
  
 
-    //remember to add delete button here
     return (
         <div>
-            <h3>We will need to add another ArticlePreview leading to edit</h3>
+            <Link to={{
+          pathname: `${user.id}/articles/new`,
+          state: {
+              user: {user}
+          }
+          }}>Write a new article</Link>
              <UserArticlePreview articles={articles} user={user} />
         </div>
        

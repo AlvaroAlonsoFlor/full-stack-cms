@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import Request from '../../helpers/Request';
 import {Redirect} from 'react-router-dom';
 
-export default class UserArticleForm extends Component {
+export default class UserNewArticleForm extends Component {
 
 
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.location.state.article.article.title,
-            lead: this.props.location.state.article.article.lead,
-            body: this.props.location.state.article.article.body,
-            tag: this.props.location.state.article.article.tag,
+            title: '',
+            lead: '',
+            body: '',
+            tag: '',
 
             redirectNow: false
 
@@ -41,6 +41,8 @@ export default class UserArticleForm extends Component {
         this.setState({tag: event.target.value})
     }
 
+    // remember to pass the date
+
     handleSubmit(event) {
         event.preventDefault();
         const title = this.state.title.trim();
@@ -50,14 +52,23 @@ export default class UserArticleForm extends Component {
         if (!title || !lead || !body) {
             return
         }
+        
 
-        const id = this.props.location.state.article.article.id
+        const user = this.props.location.state.user.user
         const request = new Request()
-        request.patch(`/articles/${id}`,{
+        request.post(`/articles`,{
             "title": title,
             "lead": lead,
             "body": body,
-            "tag": tag
+            "tag": tag,
+            "date": new Date(),
+            // "user": {
+            //     "name": user.name,
+            //     "password": user.password,
+            //     "type": user.type
+            // }
+            //`${year}-${month}-${day}T10:40:27.789+0000`
+            // date "2019-01-10T10:40:27.789+0000"
         })
             .then(() => this.setState({redirectNow: true}))
 
@@ -78,9 +89,8 @@ export default class UserArticleForm extends Component {
     }
 
     render() {
-
-        //try what happens if we add a tag field and we modify(changes on the dropdown for articles?)
-
+        console.log(this.props.location.state.user.user);
+        
         return(
             <div>
                 <form className='edit-article-form' onSubmit={this.handleSubmit}>
@@ -93,9 +103,10 @@ export default class UserArticleForm extends Component {
                     <label>Tag</label>
                     <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
 
-                    <button type="submit">Edit article</button>
+                    <button type="submit">Create article</button>
                     {this.handleRedirect()}
                 </form>
+                <h1>Here goes the new article form</h1>
 
             </div>
         );

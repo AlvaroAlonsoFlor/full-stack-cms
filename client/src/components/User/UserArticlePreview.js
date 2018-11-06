@@ -22,6 +22,7 @@ const UserArticlePreview = ({user}) => {
       </div>
   })
 
+  //remember to add delete button here
   return(
       <div>
       <h1>Articles</h1>
