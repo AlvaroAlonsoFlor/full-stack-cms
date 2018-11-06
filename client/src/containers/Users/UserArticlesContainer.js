@@ -13,9 +13,7 @@ const UserArticlesContainer = ({user}) => {
 
     // const articles = user._embedded.articles;
     const articles = user.articles;
-    console.log(user);
 
-    //remember to add delete button here
     return (
         <div>
             <Link to={{
