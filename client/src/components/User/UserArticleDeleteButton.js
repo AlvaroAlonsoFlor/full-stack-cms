@@ -17,4 +17,4 @@ const UserArticleDeleteButton = ({ user, article, onDelete }) => {
     )
 }
 
-export default UserArticleDeleteButton
+export default UserArticleDeleteButton;

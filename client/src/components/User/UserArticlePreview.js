@@ -4,8 +4,9 @@ import { Tile } from 'bloomer/lib/grid/Tile';
 import { Box } from 'bloomer/lib/elements/Box';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
+import UserArticleDeleteButton from './UserArticleDeleteButton';
 
-const UserArticlePreview = ({ user, articles }) => {
+const UserArticlePreview = ({ user, articles, onDelete }) => {
     if (!user.articles || !articles) {
         return null;
     }
@@ -27,7 +28,7 @@ const UserArticlePreview = ({ user, articles }) => {
                         <p>
                             Tag: {article.tag}
                         </p>
-                        <UserArticleDeleteButton user={user} article={article}/>
+                        <UserArticleDeleteButton onDelete = {onDelete} user={user} article={article}/>
                     </Box>
                 )
             }></Tile>
