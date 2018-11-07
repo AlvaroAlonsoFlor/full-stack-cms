@@ -4,6 +4,7 @@ import { Label } from 'bloomer/lib/elements/Form/Label';
 import { Control } from 'bloomer/lib/elements/Form/Control';
 import { Select } from 'bloomer/lib/elements/Form/Select';
 import { Button } from 'bloomer/lib/elements/Button';
+import { Section } from 'bloomer/lib/layout/Section';
 
 class ArticleFilter extends Component {
 
@@ -45,22 +46,24 @@ class ArticleFilter extends Component {
     return (
 
    <Fragment>
+   <Section>
    <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
    <Field>
-    <Label>Options:</Label>
     <Control>
         <Select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
             <option value="all">All Users</option>
             {userOptions}
         </Select>
-        <Select id="tag-option" onChange = {this.handleTagChange}>
+        <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleTagChange}>
         <option value = "all">All Tags</option>
            {tagOptions}
         </Select>
+        <Button style={{backgroundColor: '#A4C3B2', marginLeft: 5}}type="submit" form="filter-form" >Filter</Button> 
     </Control>
 </Field>
-<Button type="submit" form="filter-form" >Filter</Button> 
+
 </form>
+</Section>
    </Fragment>
 
     )
