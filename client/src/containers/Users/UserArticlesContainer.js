@@ -35,7 +35,6 @@ const UserArticlesContainer = ({user, onFilter, articlesFiltered, onDelete}) => 
                 <Section>
                     <UserArticlePreview onDelete={onDelete} articles={articlesFiltered} user={user} />
                 </Section>
-                
             </Container>
         </div>
     );

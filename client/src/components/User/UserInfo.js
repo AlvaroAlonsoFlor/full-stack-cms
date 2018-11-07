@@ -43,7 +43,8 @@ class UserInfo extends Component {
                         <Title className="user-name" isSize={1}>Welcome back {this.props.user.name}</Title>
                     </Section>
                     <Section>
-                        <Button style={{marginRight: 20}}>
+                        {/* <Button style={{marginRight: 20}}> */}
+                        <Button>
                             <Link to={{
                                 pathname: userEditUrl,
                                 state: {
@@ -53,7 +54,8 @@ class UserInfo extends Component {
                                 Edit User
                 </Link>
                         </Button>
-                        <Button style={{ marginLeft: 20 }} onClick={this.handleDelete}>Delete User</Button>
+                        {/* <Button style={{ marginLeft: 20 }} onClick={this.handleDelete}>Delete User</Button> */}
+                        <Button onClick={this.handleDelete}>Delete User</Button>
                         {this.handleRedirect()}
                     </Section>
                 </Container>
