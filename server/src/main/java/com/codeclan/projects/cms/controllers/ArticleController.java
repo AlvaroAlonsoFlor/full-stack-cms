@@ -14,6 +14,7 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
+
     @GetMapping(value = "/tag/{tag}")
     public List<Article> getArticlesByCategory(@PathVariable String tag){
         return articleRepository.getArticlesByCategory(tag);
