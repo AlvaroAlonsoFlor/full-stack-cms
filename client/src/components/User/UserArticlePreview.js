@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserArticleDeleteButton from './UserArticleDeleteButton';
 
-const UserArticlePreview = ({user}) => {
-  if (!user.articles) {
+const UserArticlePreview = ({user, articles}) => {
+  if (!user.articles || !articles) {
       return null;
   }
-  
-  const articles = user.articles
   
   const articlePreviews = articles.map((article) => {
       
