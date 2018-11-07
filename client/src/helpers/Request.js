@@ -6,7 +6,6 @@ class Request {
     }
 
     post(url, payload) {
-        console.log('is trying hard', url, payload);
         return fetch(url, {
             method: "POST",
             headers: {

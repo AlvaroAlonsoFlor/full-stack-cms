@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Request from '../../helpers/Request'
+import { Container } from 'bloomer/lib/layout/Container';
+import { Title } from 'bloomer/lib/elements/Title';
+import { Button } from 'bloomer/lib/elements/Button';
+import { Section } from 'bloomer/lib/layout/Section';
 
 class UserInfo extends Component {
     constructor(props) {
@@ -34,17 +38,26 @@ class UserInfo extends Component {
         let userEditUrl = '/users/' + this.props.user.id + '/edit';
         return (
             <div className="user-info">
-                <h4 className="user-name">{this.props.user.name}</h4>
-                <Link to={{
-                        pathname: userEditUrl,
-                        state: {
-                            user: this.props.user
-                        }
-                    }}>
-                    Edit User
+                <Container>
+                    <Section>
+                        <Title className="user-name" isSize={1}>Welcome back {this.props.user.name}</Title>
+                    </Section>
+                    <Section>
+                        <Button style={{marginRight: 20}}>
+                            <Link to={{
+                                pathname: userEditUrl,
+                                state: {
+                                    user: this.props.user
+                                }
+                            }}>
+                                Edit User
                 </Link>
-                <button type="button" onClick={this.handleDelete}>Delete User</button>
-                {this.handleRedirect()}
+                        </Button>
+                        <Button style={{ marginLeft: 20 }} onClick={this.handleDelete}>Delete User</Button>
+                        {this.handleRedirect()}
+                    </Section>
+                </Container>
+
             </div>
         );
     }

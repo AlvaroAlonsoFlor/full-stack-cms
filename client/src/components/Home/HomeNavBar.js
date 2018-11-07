@@ -1,5 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+
+import {Navbar} from 'bloomer';
+
+import { NavbarItem } from 'bloomer/lib/components/Navbar/NavbarItem';
+import { NavbarLink } from 'bloomer/lib/components/Navbar/NavbarLink';
+
 
 const HomeNavBar = (props) => {
     // <div>
@@ -8,6 +13,7 @@ const HomeNavBar = (props) => {
     //     </div>
     
     return(
+<<<<<<< HEAD
        
 
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -64,6 +70,23 @@ const HomeNavBar = (props) => {
     </div>
   </div>
 </nav>
+=======
+        <div>
+            <Navbar style={{backgroundColor: "#6B9080"}}>
+
+                <NavbarItem  style={{color: "white"}}  href='/'>Home</NavbarItem>
+                <NavbarLink style={{color: "white"}} to='/articles'> Articles </NavbarLink>
+                
+            </Navbar>
+                
+            
+            
+        
+            
+        </div>
+        
+        
+>>>>>>> development
                 
             
     );
