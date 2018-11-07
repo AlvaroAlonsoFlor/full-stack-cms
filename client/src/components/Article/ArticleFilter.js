@@ -1,4 +1,9 @@
 import React, {Component, Fragment} from 'react';
+import { Field } from 'bloomer/lib/elements/Form/Field/Field';
+import { Label } from 'bloomer/lib/elements/Form/Label';
+import { Control } from 'bloomer/lib/elements/Form/Control';
+import { Select } from 'bloomer/lib/elements/Form/Select';
+import { Button } from 'bloomer/lib/elements/Button';
 
 class ArticleFilter extends Component {
 
@@ -38,19 +43,26 @@ class ArticleFilter extends Component {
                 return <option key = {index} value={tag}>{uppercaseTag}</option>
             })
     return (
+
    <Fragment>
-       <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
-       <select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
-           <option value = "all">All Users</option>
-           {userOptions}
-       </select>
-       <select id="tag-option" onChange = {this.handleTagChange}>
-           <option value = "all">All Tags</option>
+   <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
+   <Field>
+    <Label>Options:</Label>
+    <Control>
+        <Select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
+            <option value="all">All Users</option>
+            {userOptions}
+        </Select>
+        <Select id="tag-option" onChange = {this.handleTagChange}>
+        <option value = "all">All Tags</option>
            {tagOptions}
-       </select>
-       <button type="submit" form="filter-form" >Submit</button>
-       </form>
+        </Select>
+    </Control>
+</Field>
+<Button type="submit" form="filter-form" >Filter</Button> 
+</form>
    </Fragment>
+
     )
 }
 }
