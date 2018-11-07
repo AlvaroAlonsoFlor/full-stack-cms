@@ -1,22 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Navbar } from 'bloomer/lib/components/Navbar/Navbar';
+import { NavbarItem } from 'bloomer/lib/components/Navbar/NavbarItem';
 
 const UserNavBar = (props) => {
     const userUrl = '/users/' + props.user.id;
 
     return (
         <div>
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to={userUrl}>{props.user.name}</Link>
-                </li>
-                <li>
-                    <Link to='/articles'>All Articles</Link>
-                </li>
-            </ul>
+            <Navbar style={{ backgroundColor: "#6B9080" }}>
+                <NavbarItem id="navbarItem" href='/'>Home</NavbarItem>
+                <NavbarItem style={{ color: "red" }} href={userUrl}>{props.user.name}</NavbarItem>
+                <NavbarItem style={{ color: "white" }} href='/articles'>All Articles</NavbarItem>
+            </Navbar>
         </div>
     )
 }
