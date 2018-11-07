@@ -14,6 +14,11 @@ public class ArticleController {
     @Autowired
     ArticleRepository articleRepository;
 
+    /**
+     * Route for getting articles by category
+     * @param tag
+     * @return JSON view of articles list
+     */
     @GetMapping(value = "/tag/{tag}")
     public List<Article> getArticlesByCategory(@PathVariable String tag){
         return articleRepository.getArticlesByCategory(tag);

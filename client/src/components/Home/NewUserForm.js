@@ -5,6 +5,7 @@ import { Section } from 'bloomer/lib/layout/Section';
 import { Field } from 'bloomer/lib/elements/Form/Field/Field';
 import { Label } from 'bloomer/lib/elements/Form/Label';
 import { Input } from 'bloomer/lib/elements/Form/Input';
+import { Button } from 'bloomer/lib/elements/Button';
 
 class NewUserForm extends React.Component {
 
@@ -44,24 +45,19 @@ class NewUserForm extends React.Component {
     render() {
         
          return(
-            // <div>
-            //     <h3>Introduce your user name and password to create the user</h3>
-
-            //     <form onSubmit={this.handleSubmit}>
-            //         <input type="text" placeholder="Name" name="name"/>
-            //         <input type="text" placeholder="Password" name="password"/>
-                    
-            //         <button type="submit">Create</button>
-            //         {this.handleRedirect()}
-                
-            //     </form>
-            // </div>
+           
             <Section>
                 <form onSubmit={this.handleSubmit}>
                     <Field>
                         <Label>Name</Label>
                         <Input style={{width: 200}} type="text" placeholder="Name" name="name"></Input>
                     </Field>
+                    <Field>
+                        <Label>Password</Label>
+                        <Input style={{width: 200}} type="text" placeholder="Password" name="password"/>
+                    </Field>
+                    <Button type='submit'>Create new user</Button>
+                    {this.handleRedirect()}
                 </form>
 
             </Section>
