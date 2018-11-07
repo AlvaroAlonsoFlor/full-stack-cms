@@ -1,12 +1,15 @@
 import React from 'react'
 import Request from '../../helpers/Request'
 
-const UserArticleDeleteButton = ({ user, article }) => {
+const UserArticleDeleteButton = ({ user, article, onDelete }) => {
 
     function deleteArticle() {
-        let ArticleDeleteUrl = `/articles/${article.id}`
+        let articleDeleteUrl = `/articles/${article.id}`
+        console.log(onDelete);
         const request = new Request()
-        request.delete(ArticleDeleteUrl)
+        request.delete(articleDeleteUrl)
+            .then(() => onDelete())
+           
     }
 
     return (
@@ -14,4 +17,4 @@ const UserArticleDeleteButton = ({ user, article }) => {
     )
 }
 
-export default UserArticleDeleteButton
+export default UserArticleDeleteButton;

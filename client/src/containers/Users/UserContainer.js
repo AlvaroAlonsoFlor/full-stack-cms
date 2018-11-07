@@ -24,51 +24,50 @@ export default class UserContainer extends Component {
         const request = new Request();
         request.get(`/users/${this.state.user.id}` + '?projection=embedArticle')
             .then((data) => {
-                this.setState({ user: data, filteredArticles: data.articles })
+                this.setState({user: data, filteredArticles: data.articles})      
             })
-
+        
 
     }
 
     handleTagFilter(filterName) {
         if (filterName === 'all') {
-            this.setState({ filteredArticles: this.state.user.articles })
+            this.setState({filteredArticles: this.state.user.articles})
         } else {
             const filteredArticles = this.state.user.articles.filter((article) => {
                 return article.tag === filterName
             })
 
-            this.setState({ filteredArticles: filteredArticles })
+            this.setState({filteredArticles: filteredArticles})
         }
 
 
-
+        
 
     }
 
     componentDidMount() {
         console.log('state in mount', this.props.location.state);
         if (this.props.location.state) {
-            this.setState({ user: this.props.location.state.user.user })
+            this.setState({user: this.props.location.state.user.user})
             // optional ?
-            this.setState({ filteredArticles: this.props.location.state.user.user.articles })
+            this.setState({filteredArticles: this.props.location.state.user.user.articles})
         }
 
-
+    
 
         //loads if it doesn't have the info
         else {
-            let url = '/users/' + this.state.idToRender + '?projection=embedArticle';
-            fetch(url)
-                .then(request => request.json())
-                .then((data) => {
-                    this.setState({ filteredArticles: data.articles })
-                    return this.setState({ user: data })
-                })
-
-
+        let url = '/users/' + this.state.idToRender + '?projection=embedArticle';
+        fetch(url)
+            .then(request => request.json())
+            .then((data) => {
+                this.setState({filteredArticles: data.articles})
+                return this.setState({user: data})})
+            
+            
         }
-
+        
     }
 
     render() {
@@ -83,15 +82,17 @@ export default class UserContainer extends Component {
 
         console.log(this.state.filteredArticles);
 
-        return (
-
+        return(
+            
             <Fragment>
-                <UserNavBar user={this.state.user} />
+                <UserNavBar user={this.state.user} /> 
                 <UserInfo user={this.state.user} />
-                <UserArticlesContainer onDelete={this.handleArticleDelete} user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} />
+                <UserArticlesContainer onDelete={this.handleArticleDelete} user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} /> 
             </Fragment>
         )
     }
 
 
 }
+
+

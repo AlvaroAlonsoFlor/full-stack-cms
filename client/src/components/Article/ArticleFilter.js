@@ -1,4 +1,10 @@
 import React, {Component, Fragment} from 'react';
+import { Field } from 'bloomer/lib/elements/Form/Field/Field';
+import { Label } from 'bloomer/lib/elements/Form/Label';
+import { Control } from 'bloomer/lib/elements/Form/Control';
+import { Select } from 'bloomer/lib/elements/Form/Select';
+import { Button } from 'bloomer/lib/elements/Button';
+import { Section } from 'bloomer/lib/layout/Section';
 
 class ArticleFilter extends Component {
 
@@ -38,19 +44,28 @@ class ArticleFilter extends Component {
                 return <option key = {index} value={tag}>{uppercaseTag}</option>
             })
     return (
+
    <Fragment>
-       <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
-       <select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
-           <option value = "all">All Users</option>
-           {userOptions}
-       </select>
-       <select id="tag-option" onChange = {this.handleTagChange}>
-           <option value = "all">All Tags</option>
+   <Section>
+   <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
+   <Field>
+    <Control>
+        <Select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
+            <option value="all">All Users</option>
+            {userOptions}
+        </Select>
+        <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleTagChange}>
+        <option value = "all">All Tags</option>
            {tagOptions}
-       </select>
-       <button type="submit" form="filter-form" >Submit</button>
-       </form>
+        </Select>
+        <Button style={{backgroundColor: '#A4C3B2', marginLeft: 5}}type="submit" form="filter-form" >Filter</Button> 
+    </Control>
+</Field>
+
+</form>
+</Section>
    </Fragment>
+
     )
 }
 }
