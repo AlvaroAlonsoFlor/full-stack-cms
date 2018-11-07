@@ -137,7 +137,7 @@ export default class UserNewArticleForm extends Component {
                             
                         </Field>
 
-                        <Button type='submit'>Edit Article</Button>
+                        <Button type='submit'>Create new Article</Button>
                     
                         {this.handleRedirect()}
                     </form>

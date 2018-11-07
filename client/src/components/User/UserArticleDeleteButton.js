@@ -4,9 +4,10 @@ import Request from '../../helpers/Request'
 const UserArticleDeleteButton = ({ user, article }) => {
 
     function deleteArticle() {
-        let ArticleDeleteUrl = `/articles/${article.id}`
+        let articleDeleteUrl = `/articles/${article.id}`
         const request = new Request()
-        request.delete(ArticleDeleteUrl)
+        console.log('trying to delete', articleDeleteUrl);
+        request.delete(articleDeleteUrl)
     }
 
     return (
