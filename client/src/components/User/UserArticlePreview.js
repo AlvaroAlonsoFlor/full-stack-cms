@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserArticlePreview = ({user, articles}) => {
-  if (!user.articles) {
+  if (!user.articles || !articles) {
       return null;
   }
   
