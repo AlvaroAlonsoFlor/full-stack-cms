@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import UserNavBar from '../../components/User/UserNavBar';
 import UserArticlesContainer from './UserArticlesContainer';
 import UserInfo from '../../components/User/UserInfo';
+import Request from '../../helpers/Request';
 
 
 export default class UserContainer extends Component {
@@ -15,6 +16,18 @@ export default class UserContainer extends Component {
         };
 
         this.handleTagFilter = this.handleTagFilter.bind(this);
+        this.handleArticleDelete = this.handleArticleDelete.bind(this);
+    }
+
+    handleArticleDelete() {
+        console.log('here handle delete');
+        const request = new Request();
+        request.get(`/users/${this.state.user.id}` + '?projection=embedArticle')
+            .then((data) => {
+                this.setState({user: data, filteredArticles: data.articles})      
+            })
+        
+
     }
 
     handleTagFilter(filterName) {
@@ -34,11 +47,14 @@ export default class UserContainer extends Component {
     }
 
     componentDidMount() {
+        console.log('state in mount', this.props.location.state);
         if (this.props.location.state) {
             this.setState({user: this.props.location.state.user.user})
             // optional ?
-            // this.setState({filteredArticles: this.props.location.state.user.user.articles})
+            this.setState({filteredArticles: this.props.location.state.user.user.articles})
         }
+
+    
 
         //loads if it doesn't have the info
         else {
@@ -64,12 +80,14 @@ export default class UserContainer extends Component {
             articles = this.state.user.articles;
         }
 
+        console.log(this.state.filteredArticles);
+
         return(
             
             <Fragment>
                 <UserNavBar user={this.state.user} /> 
                 <UserInfo user={this.state.user} />
-                <UserArticlesContainer user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} /> 
+                <UserArticlesContainer onDelete={this.handleArticleDelete} user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} /> 
             </Fragment>
         )
     }
