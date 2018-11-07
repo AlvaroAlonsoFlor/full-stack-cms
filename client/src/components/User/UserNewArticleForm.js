@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
 import {Redirect} from 'react-router-dom';
+import { Field } from 'bloomer/lib/elements/Form/Field/Field';
+import { Label } from 'bloomer/lib/elements/Form/Label';
+import { Input } from 'bloomer/lib/elements/Form/Input';
+import { Button } from 'bloomer/lib/elements/Button';
+import { TextArea } from 'bloomer/lib/elements/Form/TextArea';
+import { Section } from 'bloomer/lib/layout/Section';
 
 export default class UserNewArticleForm extends Component {
 
@@ -89,23 +95,54 @@ export default class UserNewArticleForm extends Component {
     render() {
         
         return(
-            <div>
-                <form className='edit-article-form' onSubmit={this.handleSubmit}>
-                    <label>Title</label>
-                    <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
-                    <label>Lead</label>
-                    <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
-                    <label>Body</label>
-                    <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
-                    <label>Tag</label>
-                    <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
+            // <div>
+            //     <form className='edit-article-form' onSubmit={this.handleSubmit}>
+            //         <label>Title</label>
+            //         <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
+            //         <label>Lead</label>
+            //         <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
+            //         <label>Body</label>
+            //         <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
+            //         <label>Tag</label>
+            //         <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
 
-                    <button type="submit">Create article</button>
-                    {this.handleRedirect()}
-                </form>
-                <h1>Here goes the new article form</h1>
+            //         <button type="submit">Create article</button>
+            //         {this.handleRedirect()}
+            //     </form>
+            //     <h1>Here goes the new article form</h1>
 
-            </div>
+            // </div>
+
+            <Section>
+                    <form className='edit-article-form' onSubmit={this.handleSubmit}>
+                        <Field>
+                            <Label>Title</Label>
+                            <Input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
+                        </Field>
+
+                        <Field>
+                            <Label>Lead</Label>
+                            <Input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
+                        </Field>
+
+                        <Field>
+                            <Label>Tag</Label>
+                            <Input style={{width: 200}} type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
+                            
+                        </Field>
+
+                        <Field>
+                            <Label>Body</Label>
+                            <TextArea rows='25'  type="text" name="body" value={this.state.body} onChange={this.handleBodyChange} />
+                            
+                        </Field>
+
+                        <Button type='submit'>Edit Article</Button>
+                    
+                        {this.handleRedirect()}
+                    </form>
+
+                </Section>
         );
     }
 }

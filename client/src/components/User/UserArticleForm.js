@@ -101,13 +101,13 @@ export default class UserArticleForm extends Component {
 
                     <Field>
                         <Label>Tag</Label>
-                        <Input type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
+                        <Input style={{width: 200}} type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
                         
                     </Field>
 
                     <Field>
                         <Label>Body</Label>
-                        <TextArea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
+                        <TextArea rows='25' type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
                         
                     </Field>
 
