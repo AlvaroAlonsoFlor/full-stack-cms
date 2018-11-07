@@ -1,4 +1,4 @@
-gitimport React, {Component, Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import HomeNavBar from '../components/Home/HomeNavBar';
 import UserList from '../components/Home/UserList';
