@@ -1,13 +1,15 @@
 import React from 'react'
 import Request from '../../helpers/Request'
 
-const UserArticleDeleteButton = ({ user, article }) => {
+const UserArticleDeleteButton = ({ user, article, onDelete }) => {
 
     function deleteArticle() {
         let articleDeleteUrl = `/articles/${article.id}`
+        console.log(onDelete);
         const request = new Request()
-        console.log('trying to delete', articleDeleteUrl);
         request.delete(articleDeleteUrl)
+            .then(() => onDelete())
+           
     }
 
     return (

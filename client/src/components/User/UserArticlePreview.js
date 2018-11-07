@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserArticleDeleteButton from './UserArticleDeleteButton';
 
-const UserArticlePreview = ({user, articles}) => {
+const UserArticlePreview = ({user, articles, onDelete}) => {
   if (!user.articles || !articles) {
       return null;
   }
@@ -20,7 +20,7 @@ const UserArticlePreview = ({user, articles}) => {
            <h3>{article.lead}</h3>
            <h4>by {user.name} </h4>
            <h4>{article.tag}</h4>
-           <UserArticleDeleteButton user={user} article={article}/>
+           <UserArticleDeleteButton onDelete={onDelete} user={user} article={article}/>
       </div>
   })
 
