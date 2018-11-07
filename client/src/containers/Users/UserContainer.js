@@ -26,7 +26,6 @@ export default class UserContainer extends Component {
             })
 
             this.setState({filteredArticles: filteredArticles})
-            console.log('rerender');
         }
 
 
@@ -56,7 +55,6 @@ export default class UserContainer extends Component {
     }
 
     render() {
-        console.log('filtered articles:', this.state.filteredArticles);
 
         let articles;
 
@@ -65,6 +63,7 @@ export default class UserContainer extends Component {
         } else {
             articles = this.state.user.articles;
         }
+
         return(
             
             <Fragment>
