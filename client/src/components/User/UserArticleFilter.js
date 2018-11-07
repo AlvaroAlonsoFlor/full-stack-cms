@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import { Container } from 'bloomer/lib/layout/Container';
+import { Control } from 'bloomer/lib/elements/Form/Control';
+import { Select } from 'bloomer/lib/elements/Form/Select';
+import { Label } from 'bloomer/lib/elements/Form/Label';
 
 export default class UserArticleFilter extends Component {
      constructor(props) {
@@ -44,16 +48,13 @@ export default class UserArticleFilter extends Component {
         const tagOptions = this.filterTagsForSelectMenu()
     
         return (
-            <div>
-                <label name="tag-filter">Filter by tag</label>
-                 <select id="tag-option" name="tag-filter" onChange = {this.handleTagChange}>
-                    <option value = "all">All Tags</option>
+            <Container>
+                <Label name="tag-filter">Filter by tag</Label>
+                <Select id="tag-option" name="tag-filter" onChange={this.handleTagChange}>
+                    <option value="all">All Tags</option>
                     {tagOptions}
-                </select> 
-            </div>
-      
-           
-   
+                </Select> 
+            </Container>
         )
 }
 
