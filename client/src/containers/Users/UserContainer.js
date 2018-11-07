@@ -3,6 +3,7 @@ import UserNavBar from '../../components/User/UserNavBar';
 import UserArticlesContainer from './UserArticlesContainer';
 import UserInfo from '../../components/User/UserInfo';
 import Request from '../../helpers/Request';
+import { Container } from 'bloomer/lib/layout/Container';
 
 
 export default class UserContainer extends Component {
@@ -83,12 +84,11 @@ export default class UserContainer extends Component {
         console.log(this.state.filteredArticles);
 
         return(
-            
-            <Fragment>
-                <UserNavBar user={this.state.user} /> 
+            <Container>
+                <UserNavBar user={this.state.user} />
                 <UserInfo user={this.state.user} />
                 <UserArticlesContainer onDelete={this.handleArticleDelete} user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} /> 
-            </Fragment>
+            </Container>
         )
     }
 
