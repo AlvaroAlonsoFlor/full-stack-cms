@@ -6,42 +6,49 @@ import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
 import { CardFooter } from 'bloomer/lib/components/Card/Footer/CardFooter';
 import { CardFooterItem } from 'bloomer/lib/components/Card/Footer/CardFooterItem';
+import { Tile } from 'bloomer/lib/grid/Tile';
+import { Box } from 'bloomer/lib/elements/Box';
 
 const ArticlePreview = ({articles}) => {
    
     
   const articlePreviews = articles.map((article) => {
-    return <Card style={{height: 350, width:350, margin: 10}} key={article.id}>
-        <CardContent>
-            <Title>
+  
+    return <Tile isParent size={6} style={{minWidth: 300}}>
+     <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
+          props => (
+              <Box {...props}>
+                  <Title style={{color: '#6B9080'}}>
                {article.title} 
             </Title>
-            <Subtitle>
+            <Subtitle style={{color:'#628375'}}> 
                  {article.lead}
             </Subtitle>
-            {article.user.name}
-        <CardFooter>
-            <CardFooterItem>
+            Author: {article.user.name}
+            <p>
+            Tag: {article.tag}
+            </p>
             <Link to={{
                 pathname: `/articles/${article.id}`,
                 state: {
               article: {article}
                   }
             }}>Read More </Link>
-                 
-            </CardFooterItem>
-             
-        </CardFooter>
-    </CardContent>
-</Card>
+              </Box>
+          )
+    }>
+  
+</Tile>
+</Tile>
     
   })
 
   return(
-      <div>
-      <h1>Articles</h1>
-      {articlePreviews}
-      </div>
+      
+      <React.Fragment>
+           {articlePreviews}
+      </React.Fragment>
+     
   )
 }
 

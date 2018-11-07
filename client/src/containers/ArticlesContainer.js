@@ -98,11 +98,11 @@ export default class ArticlesContainer extends Component {
             <Fragment>
                 <HomeNavBar/>
                 <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilter =           {this.handleFiltersFromMenu}/>
-                <Section>
-                    <Container isFullWidth={true} >
-                        <ArticlePreview articles = {this.state.filteredarticles}/>
-                    </Container>  
-                </Section>
+                
+                    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                            <ArticlePreview articles = {this.state.filteredarticles}/>
+                    </div>
+                
             </Fragment>
         );
     }
