@@ -1,6 +1,10 @@
 import React from 'react';
 import Request from '../../helpers/Request';
 import {Redirect} from 'react-router-dom';
+import { Section } from 'bloomer/lib/layout/Section';
+import { Field } from 'bloomer/lib/elements/Form/Field/Field';
+import { Label } from 'bloomer/lib/elements/Form/Label';
+import { Input } from 'bloomer/lib/elements/Form/Input';
 
 class NewUserForm extends React.Component {
 
@@ -40,71 +44,32 @@ class NewUserForm extends React.Component {
     render() {
         
          return(
-            <div>
-                <h3>Introduce your user name and password to create the user</h3>
+            // <div>
+            //     <h3>Introduce your user name and password to create the user</h3>
 
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Name" name="name"/>
-                    <input type="text" placeholder="Password" name="password"/>
+            //     <form onSubmit={this.handleSubmit}>
+            //         <input type="text" placeholder="Name" name="name"/>
+            //         <input type="text" placeholder="Password" name="password"/>
                     
-                    <button type="submit">Create</button>
-                    {this.handleRedirect()}
+            //         <button type="submit">Create</button>
+            //         {this.handleRedirect()}
                 
+            //     </form>
+            // </div>
+            <Section>
+                <form onSubmit={this.handleSubmit}>
+                    <Field>
+                        <Label>Name</Label>
+                        <Input style={{width: 200}} type="text" placeholder="Name" name="name"></Input>
+                    </Field>
                 </form>
-            </div>
+
+            </Section>
         );
     }
    
 
      
 }
-
-// const NewUserForm = () => {
-//     //pass type "EDITOR" by default, only admin changes that?
-
-//     //name, password, type
-//     //remember onSubmit={}
-
-
-//     function handleRedirect() {
-//         console.log('redirecting', redirectNow);
-//         if (redirectNow) {
-//             return <Redirect to='/' />
-//         }
-//     }
-
-//     function handleSubmit(event) {
-//         event.preventDefault();
-//         const user = {
-//             "name": event.target.name.value,
-//             "password": event.target.name.value,
-//             "type": "EDITOR"
-
-//         }
-//         const request = new Request()
-//         request.post('/users', user)
-//             .then(() => redirectNow = true)
-//             .then(() => handleRedirect())
-        
-//     }
-
-
-//     return(
-//         <div>
-//             <h3>Introduce your user name and password to create the user</h3>
-
-//           <form onSubmit={handleSubmit}>
-//             <input type="text" placeholder="Name" name="name"/>
-//             <input type="text" placeholder="Password" name="password"/>
-            
-//             <button type="submit">Create</button>
-//             {handleRedirect()}
-           
-//           </form>
-//         </div>
-//     );
-
-     
-// }
 
 export default NewUserForm;
