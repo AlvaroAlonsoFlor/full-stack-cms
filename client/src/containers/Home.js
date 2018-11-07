@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+gitimport React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import HomeNavBar from '../components/Home/HomeNavBar';
 import UserList from '../components/Home/UserList';
@@ -43,13 +43,6 @@ export default class Home extends Component {
 
     render() {
         return(
-<<<<<<< HEAD
-            <Fragment>
-          
-                <HomeNavBar />
-                <UserList users={this.state.users.users}/>
-                <Link to='users/create/new'>Create new user</Link>  
-=======
            < Fragment >
            <Section>
             <Hero style={{ backgroundColor: "#A4C3B2"}} isSize='small'>
@@ -85,7 +78,6 @@ export default class Home extends Component {
                  href = 'users/create/new' > Sign up
                  for new account </Button>
                  </Section>
->>>>>>> development
             </Fragment>
         );
     }
