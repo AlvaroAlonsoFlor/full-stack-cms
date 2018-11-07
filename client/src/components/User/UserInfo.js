@@ -4,6 +4,7 @@ import Request from '../../helpers/Request'
 import { Container } from 'bloomer/lib/layout/Container';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Button } from 'bloomer/lib/elements/Button';
+import { Section } from 'bloomer/lib/layout/Section';
 
 class UserInfo extends Component {
     constructor(props) {
@@ -38,20 +39,23 @@ class UserInfo extends Component {
         return (
             <div className="user-info">
                 <Container>
-                    <Title className="user-name" isSize={1}>Welcome {this.props.user.name}</Title>
-                    <Button>
-                        <Link to={{
-                            pathname: userEditUrl,
-                            state: {
-                                user: this.props.user
-                            }
-                        }}>
-                            Edit User
+                    <Section>
+                        <Title className="user-name" isSize={1}>Welcome back {this.props.user.name}</Title>
+                    </Section>
+                    <Section>
+                        <Button style={{marginRight: 20}}>
+                            <Link to={{
+                                pathname: userEditUrl,
+                                state: {
+                                    user: this.props.user
+                                }
+                            }}>
+                                Edit User
                 </Link>
-                    </Button>
-                    <Button onClick={this.handleDelete}>Delete User</Button>
-                    {this.handleRedirect()}
-                    
+                        </Button>
+                        <Button style={{ marginLeft: 20 }} onClick={this.handleDelete}>Delete User</Button>
+                        {this.handleRedirect()}
+                    </Section>
                 </Container>
 
             </div>
