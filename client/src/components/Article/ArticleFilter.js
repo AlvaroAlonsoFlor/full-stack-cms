@@ -12,11 +12,13 @@ class ArticleFilter extends Component {
         super(props)
         this.state = {
             filterName: 'all',
-            filterTag: 'all'
+            filterTag: 'all',
+            filterByViews: 'all'
         };
         this.handleUserChange = this.handleUserChange.bind(this);
         this.handleTagChange = this.handleTagChange.bind(this);
         this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
+        this.handleViewFilter = this.handleViewFilter.bind(this);
     }
 
     handleUserChange(event) {
@@ -27,9 +29,13 @@ class ArticleFilter extends Component {
         this.setState({filterTag: event.target.value})
     }
 
+    handleViewFilter(event) {
+        this.setState({filterByViews: event.target.value})
+    }
+
     handleSubmitFilter(event) {
         event.preventDefault();
-        this.props.onFilter(this.state.filterName, this.state.filterTag);   
+        this.props.onFilter(this.state.filterName, this.state.filterTag, this.state.filterByViews);   
     }
 
      render () {
@@ -55,8 +61,13 @@ class ArticleFilter extends Component {
             {userOptions}
         </Select>
         <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleTagChange}>
-        <option value = "all">All Tags</option>
-           {tagOptions}
+            <option value = "all">All Tags</option>
+            {tagOptions}
+        </Select>
+        <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleViewFilter}>
+            <option value = "all">All </option>
+            <option value = "high">Most Popular</option>
+            <option value ="low">Most Obscure</option>
         </Select>
         <Button style={{backgroundColor: '#A4C3B2', marginLeft: 5}}type="submit" form="filter-form" >Filter</Button> 
     </Control>

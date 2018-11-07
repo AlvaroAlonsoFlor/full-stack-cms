@@ -57,18 +57,20 @@ export default class ArticlesContainer extends Component {
         this.filterUsersForSelectMenu();
     }
 
-    handleFiltersFromMenu(name, tag) {
+    handleFiltersFromMenu(name, tag, views) {
         //recieve filter info back from menu
         const allArticles = this.state.articles
         //callback to make sure this.setState has finished first
         return this.setState({filteredarticles: allArticles}, () => {
-            this.theFinalFilter(name, tag)
+            this.theFinalFilter(name, tag, views)
         })
     }
 
-    theFinalFilter(name, tag) {
+    theFinalFilter(name, tag, views) {
         const firstResults = this.handleNameFiltersFromMenu(name) 
-        const filteredResults= this.handleSecondFilterFromMenu(tag, firstResults)
+        const secondResults= this.handleSecondFilterFromMenu(tag, firstResults)
+        const filteredResults = this.handleThirdFilterFromMenu(views, secondResults)
+        console.log(filteredResults)
         this.setState({filteredarticles: filteredResults})
     }
 
@@ -91,6 +93,14 @@ export default class ArticlesContainer extends Component {
             return article.tag === tag
         })
        return filteredArticles;
+    }
+
+    handleThirdFilterFromMenu(views, previousResults) {
+        console.log('high')
+        if (views === 'high') {
+            return previousResults.sort(function(a, b){return b.views - a.views})
+        }
+        return previousResults.sort(function(a, b){return a.views - b.views})
     }
 
     render() {
