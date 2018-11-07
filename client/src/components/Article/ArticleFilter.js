@@ -10,8 +10,7 @@ class ArticleFilter extends Component {
         };
         this.handleUserChange = this.handleUserChange.bind(this);
         this.handleTagChange = this.handleTagChange.bind(this);
-        this.handleSubmitFilter = 
-        this.handleSubmitFilter.bind(this);
+        this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
     }
 
     handleUserChange(event) {

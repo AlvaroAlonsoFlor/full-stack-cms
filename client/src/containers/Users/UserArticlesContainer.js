@@ -1,9 +1,10 @@
 import React from 'react';
 import UserArticlePreview from '../../components/User/UserArticlePreview';
 import { Link } from 'react-router-dom';
+import UserArticleFilter from '../../components/User/UserArticleFilter';
 
 
-const UserArticlesContainer = ({user}) => {
+const UserArticlesContainer = ({user, onFilter, articlesFiltered}) => {
     
     if (!user) {
         return null
@@ -20,7 +21,8 @@ const UserArticlesContainer = ({user}) => {
               user: {user}
           }
           }}>Write a new article</Link>
-             <UserArticlePreview  user={user} />
+             <UserArticleFilter articles={articles} onFilter={onFilter}/>
+             <UserArticlePreview articles={articlesFiltered} user={user} />
         </div>
        
 
