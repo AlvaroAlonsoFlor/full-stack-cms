@@ -9,10 +9,6 @@ import { HeroHeader } from 'bloomer/lib/layout/Hero/HeroHeader';
 import { HeroBody } from 'bloomer/lib/layout/Hero/HeroBody';
 import { HeroFooter } from 'bloomer/lib/layout/Hero/HeroFooter';
 import { Tabs } from 'bloomer/lib/components/Tabs/Tabs';
-import { Nav } from 'bloomer/lib/components/Nav/Nav';
-import { NavLeft } from 'bloomer/lib/components/Nav/NavLeft';
-import { NavItem } from 'bloomer/lib/components/Nav/NavItem';
-import { NavCenter } from 'bloomer/lib/components/Nav/NavCenter';
 import { Icon } from 'bloomer/lib/elements/Icon';
 import { NavRight } from 'bloomer/lib/components/Nav/NavRight';
 import { Container } from 'bloomer/lib/layout/Container';
@@ -32,13 +28,10 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        // We might be able to refactor this to a stateless function
-        //if we do the request in user list
-        
-        //Alison: I had to add projection here?
-       fetch(`/users/?projection=embedArticle'`)
+  
+       fetch(`/users/`)
             .then(response => response.json())
-            .then( users => this.setState({users: users._embedded}));
+            .then( users => this.setState({users: users._embedded.users}));
     }
 
     render() {

@@ -8,13 +8,32 @@ import { CardFooter } from 'bloomer/lib/components/Card/Footer/CardFooter';
 import { CardFooterItem } from 'bloomer/lib/components/Card/Footer/CardFooterItem';
 import { Tile } from 'bloomer/lib/grid/Tile';
 import { Box } from 'bloomer/lib/elements/Box';
+import Request from '../../helpers/Request';
+
 
 const ArticlePreview = ({articles}) => {
+
+    function handlearticleViews (thisArticle) {
+        console.log(thisArticle)
+        const views = thisArticle.views + 1;
+         const request = new Request();
+         request.patch(`/articles/${thisArticle.id}`, {
+             views: views
+         })
+    }
    
     
   const articlePreviews = articles.map((article) => {
+    function handlearticleViews (thisArticle) {
+        console.log(thisArticle)
+        const views = thisArticle.views + 1;
+         const request = new Request();
+         request.patch(`/articles/${thisArticle.id}`, {
+             views: views
+         })
+    }
   
-    return <Tile isParent size={6} style={{minWidth: 300}}>
+    return <Tile isParent size={6} style={{minWidth: 300}} key={article.title}>
      <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
           props => (
               <Box {...props}>
@@ -26,9 +45,10 @@ const ArticlePreview = ({articles}) => {
             </Subtitle>
             Author: {article.user.name}
             <p>
-            Tag: {article.tag}
+            Tag: {article.tag} <br></br>
+            Views: {article.views}
             </p>
-            <Link to={{
+            <Link onClick={() => {handlearticleViews(article)}} to={{
                 pathname: `/articles/${article.id}`,
                 state: {
               article: {article}

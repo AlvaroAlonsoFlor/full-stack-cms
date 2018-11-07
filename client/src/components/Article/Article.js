@@ -11,20 +11,11 @@ const Article = (props) => {
    
     const thisArticle = props.location.state.article.article;
 
-    function handlearticleViews () {
-        const views = thisArticle.views + 1;
-        console.log(views)
-         const request = new Request()
-         request.patch(`/articles/${thisArticle.id}`, {
-             views: views
-         })
-    }
     const splitPara = thisArticle.body.split('\n').map((item, key) => {
         return <React.Fragment key={key}>{item}<br/><br/></React.Fragment>
       })
     return (
         <div>
-        handlearticleViews()
         <HomeNavBar/>
             <Container>
                 <Section>
