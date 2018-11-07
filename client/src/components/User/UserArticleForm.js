@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
 import {Redirect} from 'react-router-dom';
+import { Section } from 'bloomer/lib/layout/Section';
+import { Field } from 'bloomer/lib/elements/Form/Field/Field';
+import { Label } from 'bloomer/lib/elements/Form/Label';
+import { Input } from 'bloomer/lib/elements/Form/Input';
+import { TextArea } from 'bloomer/lib/elements/Form/TextArea';
+import { Button } from 'bloomer/lib/elements/Button';
 
 export default class UserArticleForm extends Component {
 
@@ -79,25 +85,38 @@ export default class UserArticleForm extends Component {
 
     render() {
 
-        //try what happens if we add a tag field and we modify(changes on the dropdown for articles?)
-
         return(
-            <div>
+           
+            <Section>
                 <form className='edit-article-form' onSubmit={this.handleSubmit}>
-                    <label>Title</label>
-                    <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
-                    <label>Lead</label>
-                    <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
-                    <label>Body</label>
-                    <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
-                    <label>Tag</label>
-                    <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
+                    <Field>
+                        <Label>Title</Label>
+                        <Input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
+                    </Field>
 
-                    <button type="submit">Edit article</button>
+                    <Field>
+                        <Label>Lead</Label>
+                        <Input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
+                    </Field>
+
+                    <Field>
+                        <Label>Tag</Label>
+                        <Input type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
+                        
+                    </Field>
+
+                    <Field>
+                        <Label>Body</Label>
+                        <TextArea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
+                        
+                    </Field>
+
+                    <Button type='submit'>Edit Article</Button>
+                
                     {this.handleRedirect()}
                 </form>
 
-            </div>
+            </Section>
         );
     }
 }
