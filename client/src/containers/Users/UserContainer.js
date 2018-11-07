@@ -56,15 +56,21 @@ export default class UserContainer extends Component {
     }
 
     render() {
-
         console.log('filtered articles:', this.state.filteredArticles);
 
+        let articles;
+
+        if (this.state.filteredArticles) {
+            articles = this.state.filteredArticles;
+        } else {
+            articles = this.state.user.articles;
+        }
         return(
             
             <Fragment>
                 <UserNavBar user={this.state.user} /> 
                 <UserInfo user={this.state.user} />
-                <UserArticlesContainer user={this.state.user} articlesFiltered={this.state.filteredArticles} onFilter={this.handleTagFilter} /> 
+                <UserArticlesContainer user={this.state.user} articlesFiltered={articles} onFilter={this.handleTagFilter} /> 
             </Fragment>
         )
     }
