@@ -16,7 +16,8 @@ export default class Home extends Component {
         // We might be able to refactor this to a stateless function
         //if we do the request in user list
         
-       fetch(`/users`)
+        //Alison: I had to add projection here?
+       fetch(`/users/?projection=embedArticle'`)
             .then(response => response.json())
             .then( users => this.setState({users: users._embedded}));
     }
@@ -24,9 +25,9 @@ export default class Home extends Component {
     render() {
         return(
             <Fragment>
-            {console.log(this.state.users)}
+          
                 <HomeNavBar />
-                <UserList users={this.state.users}/>
+                <UserList users={this.state.users.users}/>
                 <Link to='users/create/new'>Create new user</Link>  
             </Fragment>
         );
