@@ -11,7 +11,6 @@ const UserArticlesContainer = ({user, onFilter, articlesFiltered}) => {
         
     }
 
-    const articles = user.articles;
  
 
     return (
