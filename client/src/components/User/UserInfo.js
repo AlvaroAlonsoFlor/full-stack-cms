@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Request from '../../helpers/Request'
+import { Container } from 'bloomer/lib/layout/Container';
+import { Title } from 'bloomer/lib/elements/Title';
+import { Button } from 'bloomer/lib/elements/Button';
 
 class UserInfo extends Component {
     constructor(props) {
@@ -34,17 +37,23 @@ class UserInfo extends Component {
         let userEditUrl = '/users/' + this.props.user.id + '/edit';
         return (
             <div className="user-info">
-                <h4 className="user-name">{this.props.user.name}</h4>
-                <Link to={{
-                        pathname: userEditUrl,
-                        state: {
-                            user: this.props.user
-                        }
-                    }}>
-                    Edit User
+                <Container>
+                    <Title className="user-name" isSize={1}>Welcome {this.props.user.name}</Title>
+                    <Button>
+                        <Link to={{
+                            pathname: userEditUrl,
+                            state: {
+                                user: this.props.user
+                            }
+                        }}>
+                            Edit User
                 </Link>
-                <button type="button" onClick={this.handleDelete}>Delete User</button>
-                {this.handleRedirect()}
+                    </Button>
+                    <Button onClick={this.handleDelete}>Delete User</Button>
+                    {this.handleRedirect()}
+                    
+                </Container>
+
             </div>
         );
     }

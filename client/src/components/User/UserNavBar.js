@@ -8,9 +8,9 @@ const UserNavBar = (props) => {
     return (
         <div>
             <Navbar style={{ backgroundColor: "#6B9080" }}>
-                <NavbarItem id="navbarItem" href='/'>Home</NavbarItem>
-                <NavbarItem style={{ color: "red" }} href={userUrl}>{props.user.name}</NavbarItem>
-                <NavbarItem style={{ color: "white" }} href='/articles'>All Articles</NavbarItem>
+                <NavbarItem href='/'>Home</NavbarItem>
+                <NavbarItem href={userUrl}>{props.user.name}</NavbarItem>
+                <NavbarItem href='/articles'>All Articles</NavbarItem>
             </Navbar>
         </div>
     )
