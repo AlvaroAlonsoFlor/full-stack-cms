@@ -45,29 +45,28 @@ class ArticleFilter extends Component {
             })
     return (
 
-   <Fragment>
-   <Section>
-   <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
-   <Field>
-    <Control>
-        <Select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
-            <option value="all">All Users</option>
-            {userOptions}
-        </Select>
-        <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleTagChange}>
-        <option value = "all">All Tags</option>
-           {tagOptions}
-        </Select>
-        <Button style={{backgroundColor: '#A4C3B2', marginLeft: 5}}type="submit" form="filter-form" >Filter</Button> 
-    </Control>
-</Field>
+        <Fragment>
+            <Section>
+                <form id="filter-form" onSubmit = {this.handleSubmitFilter}>
+                    <Field>
+                        <Control>
+                        <Select name="user-name-option"  value = {this.state.filterName} onChange = {this.handleUserChange}>
+                            <option value="all">All Users</option>
+                            {userOptions}
+                        </Select>
+                        <Select style={{marginLeft: 5}}id="tag-option" onChange = {this.handleTagChange}>
+                            <option value = "all">All Tags</option>
+                            {tagOptions}
+                        </Select>
+                        <Button style={{backgroundColor: '#A4C3B2', marginLeft: 5}}type="submit" form="filter-form" >Filter</Button> 
+                        </Control>
+                    </Field>
+                </form>
+            </Section>
+        </Fragment>
 
-</form>
-</Section>
-   </Fragment>
-
-    )
-}
+       )
+    }
 }
 
 export default ArticleFilter;

@@ -25,11 +25,11 @@ const Article = (props) => {
                 </Subtitle>
                     <h4>{thisArticle.user.name}</h4>
                     <h4>{thisArticle.tag}</h4>
-        <Section>
-        <p className = "article-body">{splitPara}</p>
-        </Section>
-        </Section>
-        </Container>
+                <Section>
+                    <p className = "article-body">{splitPara}</p>
+                 </Section>
+                </Section>
+            </Container>
         </div>
 
     )
