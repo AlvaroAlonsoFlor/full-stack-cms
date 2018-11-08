@@ -5,7 +5,6 @@ import { Box } from 'bloomer/lib/elements/Box';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
 import UserArticleDeleteButton from './UserArticleDeleteButton';
-import { Heading } from 'bloomer/lib/elements/Heading';
 import { Button } from 'bloomer/lib/elements/Button';
 
 const UserArticlePreview = ({ user, articles, onDelete }) => {

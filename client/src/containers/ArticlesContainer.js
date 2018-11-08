@@ -29,8 +29,7 @@ export default class ArticlesContainer extends Component {
     filterUsersForSelectMenu() {
         const users = [];
         this.state.articles.map((article) => {
-            if (!users.includes(article.user.name)) {
-                return users.push(article.user.name)}
+            if (!users.includes(article.user.name)) {return users.push(article.user.name)}
             return null;   
             }) 
         this.setState({users: users})
@@ -40,9 +39,7 @@ export default class ArticlesContainer extends Component {
     filterTagsForSelectMenu() {
         const tags = [];
         this.state.filteredarticles.map((article) => {
-            
-            if (!tags.includes(article.tag)) {
-                return tags.push(article.tag)}  
+            if (!tags.includes(article.tag)) {return tags.push(article.tag)}  
             return null;      
         })
         this.setState({tags: tags})
@@ -67,15 +64,12 @@ export default class ArticlesContainer extends Component {
         const firstResults = this.handleNameFiltersFromMenu(name) 
         const secondResults= this.handleSecondFilterFromMenu(tag, firstResults)
         const filteredResults = this.handleThirdFilterFromMenu(views, secondResults)
-        console.log(filteredResults)
         this.setState({filteredarticles: filteredResults})
     }
 
 
     handleNameFiltersFromMenu(name) {
-        if (name === "all") {
-            return this.state.articles;
-        }
+        if (name === "all") return this.state.articles;
         const previousResults = this.state.filteredarticles.filter((article) => {        
             return article.user.name === name
         })
@@ -83,9 +77,7 @@ export default class ArticlesContainer extends Component {
     }
 
     handleSecondFilterFromMenu(tag, previousResults) {
-        if (tag === "all") {
-            return previousResults;
-        }
+        if (tag === "all") return previousResults;
         const filteredArticles = previousResults.filter((article) => {
             return article.tag === tag
         })
@@ -95,9 +87,11 @@ export default class ArticlesContainer extends Component {
     handleThirdFilterFromMenu(views, previousResults) {
         switch(views)   {
             case 'high': 
-                return previousResults.sort(function(a, b){return a.views - b.views})
-            case 'low':
                 return previousResults.sort(function(a, b){return b.views - a.views})
+            case 'low':
+                return previousResults.sort(function(a, b){return a.views - b.views})
+            default:
+                return previousResults      
         }
     }
 
