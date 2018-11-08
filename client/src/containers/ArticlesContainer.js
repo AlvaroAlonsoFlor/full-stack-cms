@@ -93,11 +93,12 @@ export default class ArticlesContainer extends Component {
     }
 
     handleThirdFilterFromMenu(views, previousResults) {
-        console.log('high')
-        if (views === 'high') {
-            return previousResults.sort(function(a, b){return b.views - a.views})
+        switch(views)   {
+            case 'high': 
+                return previousResults.sort(function(a, b){return a.views - b.views})
+            case 'low':
+                return previousResults.sort(function(a, b){return b.views - a.views})
         }
-        return previousResults.sort(function(a, b){return a.views - b.views})
     }
 
     render() {
