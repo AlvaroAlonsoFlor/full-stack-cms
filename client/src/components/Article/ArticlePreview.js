@@ -38,7 +38,7 @@ const ArticlePreview = ({articles}) => {
                     <p>
                         Tag: {article.tag}
                     </p>
-                    <Link onClick={() => {handlearticleViews(article)}}</Box>)to={{
+                    <Link onClick={() => handlearticleViews(article)} to={{
                         pathname: `/articles/${article.id}`,
                         state: {
                         article: {article}
