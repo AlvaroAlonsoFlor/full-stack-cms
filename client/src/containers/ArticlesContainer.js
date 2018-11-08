@@ -2,10 +2,7 @@ import React, {Component, Fragment} from 'react';
 import ArticlePreview from '../components/Article/ArticlePreview';
 import ArticleFilter from '../components/Article/ArticleFilter';
 import HomeNavBar from '../components/Home/HomeNavBar';
-import { Section } from 'bloomer/lib/layout/Section';
-import { Tile } from 'bloomer/lib/grid/Tile';
-import { Container } from 'bloomer/lib/layout/Container';
-import { isFullWidth } from 'bloomer/lib/bulma';
+
 
 export default class ArticlesContainer extends Component {
     constructor(props) {
@@ -98,11 +95,9 @@ export default class ArticlesContainer extends Component {
             <Fragment>
                 <HomeNavBar/>
                 <ArticleFilter userNames = {this.state.users} tags = {this.state.tags} onFilter =           {this.handleFiltersFromMenu}/>
-                
                     <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                            <ArticlePreview articles = {this.state.filteredarticles}/>
-                    </div>
-                
+                        <ArticlePreview articles = {this.state.filteredarticles}/>
+                    </div>    
             </Fragment>
         );
     }
