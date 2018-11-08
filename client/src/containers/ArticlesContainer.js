@@ -71,9 +71,7 @@ export default class ArticlesContainer extends Component {
 
 
     handleNameFiltersFromMenu(name) {
-        if (name === "all") {
-            return this.state.articles;
-        }
+        if (name === "all") { return this.state.articles}
         const previousResults = this.state.filteredarticles.filter((article) => {        
             return article.user.name === name
         })
@@ -81,9 +79,7 @@ export default class ArticlesContainer extends Component {
     }
 
     handleSecondFilterFromMenu(tag, previousResults) {
-        if (tag === "all") {
-            return previousResults;
-        }
+        if (tag === "all") { return previousResults;}
         const filteredArticles = previousResults.filter((article) => {
             return article.tag === tag
         })

@@ -1,9 +1,6 @@
 import React from 'react';
-
 import {Navbar} from 'bloomer';
-
 import { NavbarItem } from 'bloomer/lib/components/Navbar/NavbarItem';
-import { NavbarLink } from 'bloomer/lib/components/Navbar/NavbarLink';
 
 
 const HomeNavBar = (props) => {
@@ -11,21 +8,10 @@ const HomeNavBar = (props) => {
     return(
         <div>
             <Navbar style={{backgroundColor: "#6B9080"}}>
-
                 <NavbarItem href='/'>Home</NavbarItem>
-                <NavbarItem href='/articles'> Articles </NavbarItem>
-                
-            </Navbar>
-                
-            
-            
-        
-            
-        </div>
-        
-        
-                
-            
+                <NavbarItem href='/articles'> Articles </NavbarItem>  
+            </Navbar>  
+        </div>    
     );
 }
 

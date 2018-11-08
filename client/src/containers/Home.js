@@ -32,9 +32,6 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        // We might be able to refactor this to a stateless function
-        //if we do the request in user list
-        
        fetch(`/users`)
             .then(response => response.json())
             .then( users => this.setState({users: users._embedded.users}));

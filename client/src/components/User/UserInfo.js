@@ -48,8 +48,8 @@ class UserInfo extends Component {
                                     user: this.props.user
                                 }
                             }}>
-                                Edit User
-                </Link>
+                            Edit User
+                            </Link>
                         </Button>
                         <Button style={{ margin: 5 }} onClick={this.handleDelete}>Delete User</Button>
                         {this.handleRedirect()}

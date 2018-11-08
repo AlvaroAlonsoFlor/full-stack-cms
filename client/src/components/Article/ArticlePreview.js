@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'bloomer/lib/components/Card/Card';
-import { CardContent } from 'bloomer/lib/components/Card/CardContent';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
-import { CardFooter } from 'bloomer/lib/components/Card/Footer/CardFooter';
-import { CardFooterItem } from 'bloomer/lib/components/Card/Footer/CardFooterItem';
 import { Tile } from 'bloomer/lib/grid/Tile';
 import { Box } from 'bloomer/lib/elements/Box';
 
@@ -14,12 +10,12 @@ const ArticlePreview = ({articles}) => {
   const articlePreviews = articles.map((article) => {
   
         return <Tile isParent size={6} style={{minWidth: 300}}>
-        <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
-            props => (
-                <Box {...props}>
-                    <Title style={{color: '#6B9080'}}>
-                        {article.title} 
-                    </Title>
+            <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
+                props => (
+                    <Box {...props}>
+                        <Title style={{color: '#6B9080'}}>
+                            {article.title} 
+                        </Title>
                     <Subtitle style={{color:'#628375'}}> 
                         {article.lead}
                     </Subtitle>
@@ -33,10 +29,10 @@ const ArticlePreview = ({articles}) => {
                         article: {article}
                         }
                     }}>Read More </Link>
-                </Box>
-            )
+                  </Box>
+                )
         }>
-        </Tile>
+            </Tile>
         </Tile>
      })
 

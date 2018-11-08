@@ -5,14 +5,12 @@ import { Box } from 'bloomer/lib/elements/Box';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
 import UserArticleDeleteButton from './UserArticleDeleteButton';
-import { Heading } from 'bloomer/lib/elements/Heading';
 import { Button } from 'bloomer/lib/elements/Button';
 
 const UserArticlePreview = ({ user, articles, onDelete }) => {
     if (!user.articles || !articles) {
         return null;
     }
-
 
     const articlePreviews = articles.map((article) => {
 
@@ -44,8 +42,6 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
         </Tile>
     });
 
-
-  //remember to add delete button here
     return (
         <div>
             <Title isSize={4} style={{textAlign: "center"}}>Articles</Title>

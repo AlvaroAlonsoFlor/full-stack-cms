@@ -18,7 +18,6 @@ export default class UserArticleForm extends Component {
             lead: this.props.location.state.article.article.lead,
             body: this.props.location.state.article.article.body,
             tag: this.props.location.state.article.article.tag,
-
             redirectNow: false
 
         }
@@ -66,9 +65,6 @@ export default class UserArticleForm extends Component {
             "tag": tag
         })
             .then(() => this.setState({redirectNow: true}))
-
-
-
 
     }
 

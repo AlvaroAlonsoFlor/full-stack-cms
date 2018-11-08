@@ -10,7 +10,6 @@ import { Section } from 'bloomer/lib/layout/Section';
 
 export default class UserNewArticleForm extends Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
@@ -47,8 +46,6 @@ export default class UserNewArticleForm extends Component {
         this.setState({tag: event.target.value})
     }
 
-    // remember to pass the date
-
     handleSubmit(event) {
         event.preventDefault();
         const title = this.state.title.trim();
@@ -59,7 +56,6 @@ export default class UserNewArticleForm extends Component {
             return
         }
         
-
         const user = this.props.location.state.user.user
         const request = new Request()
         request.post('/articles', {
@@ -69,13 +65,9 @@ export default class UserNewArticleForm extends Component {
             "tag": tag,
             "date": new Date(),
             "user": user._links.self.href
-            //`${year}-${month}-${day}T10:40:27.789+0000`
-            // date "2019-01-10T10:40:27.789+0000"
+          
         })
             .then(() => this.setState({redirectNow: true}))
-
-
-
 
     }
 
@@ -87,31 +79,12 @@ export default class UserNewArticleForm extends Component {
             return <Redirect to={`/users/${userId}`} />
         } else {
             return null
-        }
-
-        
+        }        
     }
 
     render() {
         
         return(
-            // <div>
-            //     <form className='edit-article-form' onSubmit={this.handleSubmit}>
-            //         <label>Title</label>
-            //         <input type="text" name="title" value={this.state.title} onChange={this.handleTitleChange}/>
-            //         <label>Lead</label>
-            //         <input type="text" name="lead" value={this.state.lead} onChange={this.handleLeadChange}/>
-            //         <label>Body</label>
-            //         <textarea type="text" name="body" value={this.state.body} onChange={this.handleBodyChange}/>
-            //         <label>Tag</label>
-            //         <textarea type="text" name="tag" value={this.state.tag} onChange={this.handleTagChange}/>
-
-            //         <button type="submit">Create article</button>
-            //         {this.handleRedirect()}
-            //     </form>
-            //     <h1>Here goes the new article form</h1>
-
-            // </div>
 
             <Section>
                     <form className='edit-article-form' onSubmit={this.handleSubmit}>
