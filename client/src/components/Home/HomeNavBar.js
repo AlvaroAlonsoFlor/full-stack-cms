@@ -12,13 +12,12 @@ const HomeNavBar = (props) => {
 
                 <NavbarItem href='/'>Home</NavbarItem>
                 <NavbarItem href='/articles'> Articles </NavbarItem>
-                
             </Navbar>
                 
             
             
         
-            
+    
         </div>
         
         
