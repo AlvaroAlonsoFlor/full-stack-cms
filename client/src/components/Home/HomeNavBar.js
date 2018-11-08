@@ -16,8 +16,8 @@ const HomeNavBar = (props) => {
         <div>
             <Navbar style={{backgroundColor: "#6B9080"}}>
 
-                <NavbarItem  style={{color: "white"}}  href='/'>Home</NavbarItem>
-                <NavbarLink style={{color: "white"}} to='/articles'> Articles </NavbarLink>
+                <NavbarItem href='/'>Home</NavbarItem>
+                <NavbarItem href='/articles'> Articles </NavbarItem>
                 
             </Navbar>
                 

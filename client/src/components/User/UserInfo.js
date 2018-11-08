@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Request from '../../helpers/Request'
 import { Container } from 'bloomer/lib/layout/Container';
@@ -31,19 +31,17 @@ class UserInfo extends Component {
     }
 
     handleFormEdit() {
-        return <Redirect to={'/users/' + this.props.user.id}/>
+        return <Redirect to={'/users/' + this.props.user.id} />
     }
 
     render() {
         let userEditUrl = '/users/' + this.props.user.id + '/edit';
         return (
             <div className="user-info">
-                <Container>
+                <Fragment>
                     <Section>
                         <Title className="user-name" isSize={1}>Welcome back {this.props.user.name}</Title>
-                    </Section>
-                    <Section>
-                        <Button style={{marginRight: 20}}>
+                        <Button style={{ margin: 5 }}>
                             <Link to={{
                                 pathname: userEditUrl,
                                 state: {
@@ -53,15 +51,13 @@ class UserInfo extends Component {
                                 Edit User
                 </Link>
                         </Button>
-                        <Button style={{ marginLeft: 20 }} onClick={this.handleDelete}>Delete User</Button>
+                        <Button style={{ margin: 5 }} onClick={this.handleDelete}>Delete User</Button>
                         {this.handleRedirect()}
                     </Section>
-                </Container>
-
+                </Fragment>
             </div>
         );
     }
-
 }
 
 

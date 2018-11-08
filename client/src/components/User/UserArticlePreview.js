@@ -5,6 +5,8 @@ import { Box } from 'bloomer/lib/elements/Box';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
 import UserArticleDeleteButton from './UserArticleDeleteButton';
+import { Heading } from 'bloomer/lib/elements/Heading';
+import { Button } from 'bloomer/lib/elements/Button';
 
 const UserArticlePreview = ({ user, articles, onDelete }) => {
     if (!user.articles || !articles) {
@@ -29,6 +31,13 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
                             Tag: {article.tag}
                         </p>
                         <UserArticleDeleteButton onDelete = {onDelete} user={user} article={article}/>
+                        <Button style={{marginLeft: 10}}><Link to={{
+                            pathname: `${user.id}/articles/edit/${article.id}`,
+                            state: {
+                            article: {article},
+                            user: {user}
+                            }
+                            }}>Go to article</Link></Button>
                     </Box>
                 )
             }></Tile>
@@ -38,7 +47,7 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
 
     return (
         <div>
-            <h1>Articles</h1>
+            <Title isSize={4} style={{textAlign: "center"}}>Articles</Title>
             {articlePreviews}
         </div>
     )
