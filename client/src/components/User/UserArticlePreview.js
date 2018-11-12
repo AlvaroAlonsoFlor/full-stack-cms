@@ -42,10 +42,6 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
         </Tile>
     });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> development
     return (
         <div>
             <Title isSize={4} style={{textAlign: "center"}}>Articles</Title>

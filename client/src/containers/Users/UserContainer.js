@@ -23,16 +23,11 @@ export default class UserContainer extends Component {
     handleArticleDelete() {
         console.log('here handle delete');
         const request = new Request();
-<<<<<<< HEAD
-        request.get(`/users/${this.state.user.id}?projection=embedArticle`)
-=======
         request.get(`/users/${this.state.user.id}'?projection=embedArticle`)
->>>>>>> development
             .then((data) => {
                 this.setState({user: data, filteredArticles: data.articles})      
             })
         
-
     }
 
     handleTagFilter(filterName) {

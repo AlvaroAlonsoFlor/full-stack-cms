@@ -8,10 +8,8 @@ import Request from '../../helpers/Request';
 
 
 const ArticlePreview = ({articles}) => {
-<<<<<<< HEAD
 
     function handlearticleViews (thisArticle) {
-        console.log(thisArticle)
         const views = thisArticle.views + 1;
          const request = new Request();
          request.patch(`/articles/${thisArticle.id}`, {
@@ -28,18 +26,6 @@ const ArticlePreview = ({articles}) => {
                     <Title style={{color: '#6B9080'}}>
                         {article.title} 
                     </Title>
-=======
-    
-  const articlePreviews = articles.map((article) => {
-  
-        return <Tile isParent size={6} style={{minWidth: 300}}>
-            <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
-                props => (
-                    <Box {...props}>
-                        <Title style={{color: '#6B9080'}}>
-                            {article.title} 
-                        </Title>
->>>>>>> development
                     <Subtitle style={{color:'#628375'}}> 
                         {article.lead}
                     </Subtitle>
