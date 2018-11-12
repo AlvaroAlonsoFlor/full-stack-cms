@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from 'react-router-dom';
-import HomeNavBar from '../components/Home/HomeNavBar';
 import UserList from '../components/Home/UserList';
 import { TabList } from 'bloomer/lib/components/Tabs/TabList';
 import { TabLink } from 'bloomer/lib/components/Tabs/TabLink';
@@ -10,13 +8,12 @@ import { HeroBody } from 'bloomer/lib/layout/Hero/HeroBody';
 import { HeroFooter } from 'bloomer/lib/layout/Hero/HeroFooter';
 import { Tabs } from 'bloomer/lib/components/Tabs/Tabs';
 import { Icon } from 'bloomer/lib/elements/Icon';
-import { NavRight } from 'bloomer/lib/components/Nav/NavRight';
 import { Container } from 'bloomer/lib/layout/Container';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Tab } from 'bloomer/lib/components/Tabs/Tab';
 import { Button } from 'bloomer/lib/elements/Button';
 import { Section } from 'bloomer/lib/layout/Section';
-import { isCenter, isCentered } from 'bloomer/lib/bulma';
+
 
 
 export default class Home extends Component {

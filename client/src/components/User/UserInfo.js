@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Request from '../../helpers/Request'
-import { Container } from 'bloomer/lib/layout/Container';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Button } from 'bloomer/lib/elements/Button';
 import { Section } from 'bloomer/lib/layout/Section';

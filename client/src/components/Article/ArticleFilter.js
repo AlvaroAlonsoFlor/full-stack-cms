@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import { Field } from 'bloomer/lib/elements/Form/Field/Field';
-import { Label } from 'bloomer/lib/elements/Form/Label';
 import { Control } from 'bloomer/lib/elements/Form/Control';
 import { Select } from 'bloomer/lib/elements/Form/Select';
 import { Button } from 'bloomer/lib/elements/Button';

@@ -12,7 +12,6 @@ export default class ArticlesContainer extends Component {
             filteredarticles: [],
             users: [],
             tags: []
-
         }
         this.handleFiltersFromMenu = this.handleFiltersFromMenu.bind(this); 
        
@@ -20,6 +19,7 @@ export default class ArticlesContainer extends Component {
 
     componentDidMount() {
         //fetch articles here
+        console.log('here')
         fetch('/articles/sorted')
            .then(response => response.json())
            .then( (data) => this.setState({articles: data, filteredarticles: data}))
@@ -69,7 +69,11 @@ export default class ArticlesContainer extends Component {
 
 
     handleNameFiltersFromMenu(name) {
-        if (name === "all") return this.state.articles;
+        if (name === "all") {
+            //name results creates a clone of this.state.articles so original is not modified in the views filter
+            let nameResults = this.state.articles.slice(0)
+            return nameResults
+        }
         const previousResults = this.state.filteredarticles.filter((article) => {        
             return article.user.name === name
         })

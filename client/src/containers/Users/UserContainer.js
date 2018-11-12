@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import UserNavBar from '../../components/User/UserNavBar';
 import UserArticlesContainer from './UserArticlesContainer';
 import UserInfo from '../../components/User/UserInfo';
@@ -23,7 +23,7 @@ export default class UserContainer extends Component {
     handleArticleDelete() {
         console.log('here handle delete');
         const request = new Request();
-        request.get(`/users/${this.state.user.id}` + '?projection=embedArticle')
+        request.get(`/users/${this.state.user.id}?projection=embedArticle`)
             .then((data) => {
                 this.setState({user: data, filteredArticles: data.articles})      
             })

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Container } from 'bloomer/lib/layout/Container';
-import { Control } from 'bloomer/lib/elements/Form/Control';
 import { Select } from 'bloomer/lib/elements/Form/Select';
 import { Label } from 'bloomer/lib/elements/Form/Label';
 

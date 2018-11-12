@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../Article.css';
 import HomeNavBar from '../Home/HomeNavBar';
-import Request from '../../helpers/Request';
 import { Container } from 'bloomer/lib/layout/Container';
 import { Title } from 'bloomer/lib/elements/Title';
 import { Subtitle } from 'bloomer/lib/elements/Subtitle';
