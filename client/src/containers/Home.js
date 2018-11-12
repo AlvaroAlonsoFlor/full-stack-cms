@@ -15,7 +15,6 @@ import { Button } from 'bloomer/lib/elements/Button';
 import { Section } from 'bloomer/lib/layout/Section';
 
 
-
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -25,8 +24,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-  
-       fetch(`/users/`)
+       fetch(`/users`)
             .then(response => response.json())
             .then( users => this.setState({users: users._embedded.users}));
     }

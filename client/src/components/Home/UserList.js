@@ -12,7 +12,6 @@ const UserList = ({users}) => {
        return <User user={user} key={user.id} userId={user.id}/>
     });
 
-
     return (
         <Container isFluid style={{marginTop: 10}}>
             <Columns isCentered>

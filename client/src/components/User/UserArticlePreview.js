@@ -12,7 +12,6 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
         return null;
     }
 
-
     const articlePreviews = articles.map((article) => {
 
         return <Tile isParent size={6} style={{ minWidth: 300 }}>
@@ -43,7 +42,10 @@ const UserArticlePreview = ({ user, articles, onDelete }) => {
         </Tile>
     });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
     return (
         <div>
             <Title isSize={4} style={{textAlign: "center"}}>Articles</Title>

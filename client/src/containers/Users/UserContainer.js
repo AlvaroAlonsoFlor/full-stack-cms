@@ -23,7 +23,11 @@ export default class UserContainer extends Component {
     handleArticleDelete() {
         console.log('here handle delete');
         const request = new Request();
+<<<<<<< HEAD
         request.get(`/users/${this.state.user.id}?projection=embedArticle`)
+=======
+        request.get(`/users/${this.state.user.id}'?projection=embedArticle`)
+>>>>>>> development
             .then((data) => {
                 this.setState({user: data, filteredArticles: data.articles})      
             })
@@ -40,10 +44,7 @@ export default class UserContainer extends Component {
             })
 
             this.setState({filteredArticles: filteredArticles})
-        }
-
-
-        
+        } 
 
     }
 
@@ -55,8 +56,6 @@ export default class UserContainer extends Component {
             this.setState({filteredArticles: this.props.location.state.user.user.articles})
         }
 
-    
-
         //loads if it doesn't have the info
         else {
         let url = '/users/' + this.state.idToRender + '?projection=embedArticle';
@@ -65,7 +64,6 @@ export default class UserContainer extends Component {
             .then((data) => {
                 this.setState({filteredArticles: data.articles})
                 return this.setState({user: data})})
-            
             
         }
         
@@ -80,8 +78,6 @@ export default class UserContainer extends Component {
         } else {
             articles = this.state.user.articles;
         }
-
-        console.log(this.state.filteredArticles);
 
         return(
             <Container>

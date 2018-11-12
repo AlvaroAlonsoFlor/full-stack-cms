@@ -25,7 +25,6 @@ export default class Main extends Component {
                 <Route exact path='/users/:id/articles/edit/:id' component={UserArticleForm} />
                 <Route exact path='/users/:id/articles/new' component={UserNewArticleForm} />
                 <Route exact path='/users/:id/edit' component={UserEditForm} />
-
             </div>
             </Router>
         );

@@ -8,6 +8,7 @@ import Request from '../../helpers/Request';
 
 
 const ArticlePreview = ({articles}) => {
+<<<<<<< HEAD
 
     function handlearticleViews (thisArticle) {
         console.log(thisArticle)
@@ -27,6 +28,18 @@ const ArticlePreview = ({articles}) => {
                     <Title style={{color: '#6B9080'}}>
                         {article.title} 
                     </Title>
+=======
+    
+  const articlePreviews = articles.map((article) => {
+  
+        return <Tile isParent size={6} style={{minWidth: 300}}>
+            <Tile isChild  size={12} style={{ color: '#6B9080'}} key={article.id} render= {
+                props => (
+                    <Box {...props}>
+                        <Title style={{color: '#6B9080'}}>
+                            {article.title} 
+                        </Title>
+>>>>>>> development
                     <Subtitle style={{color:'#628375'}}> 
                         {article.lead}
                     </Subtitle>
@@ -41,10 +54,10 @@ const ArticlePreview = ({articles}) => {
                         article: {article}
                         }
                     }}>Read More </Link>
-                </Box>
-            )
+                  </Box>
+                )
         }>
-        </Tile>
+            </Tile>
         </Tile>
      })
 
