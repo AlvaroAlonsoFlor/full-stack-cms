@@ -1,5 +1,6 @@
 import React from 'react'
 import Request from '../../helpers/Request'
+import { Button } from 'bloomer/lib/elements/Button';
 
 const UserArticleDeleteButton = ({ user, article, onDelete }) => {
 
@@ -13,7 +14,7 @@ const UserArticleDeleteButton = ({ user, article, onDelete }) => {
     }
 
     return (
-        <button onClick={deleteArticle}>Delete Article</button>
+        <Button onClick={deleteArticle}>Delete Article</Button>
     )
 }
 

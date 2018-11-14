@@ -2,9 +2,8 @@ import React, { Fragment } from 'react';
 import UserArticlePreview from '../../components/User/UserArticlePreview';
 import { Link } from 'react-router-dom';
 import UserArticleFilter from '../../components/User/UserArticleFilter';
-import { Container } from 'bloomer/lib/layout/Container';
 import { Button } from 'bloomer/lib/elements/Button';
-import { Section } from 'bloomer/lib/layout/Section';
+
 
 
 const UserArticlesContainer = ({ user, onFilter, articlesFiltered, onDelete }) => {

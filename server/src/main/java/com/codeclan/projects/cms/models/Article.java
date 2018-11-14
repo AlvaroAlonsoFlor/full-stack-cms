@@ -30,17 +30,23 @@ public class Article {
     @Column(name = "date")
     private Calendar date;
 
+    @Column(name = "views")
+    private int views;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Article(String title, String lead, String body, String tag, Calendar date, User user) {
+
         this.title = title;
         this.lead = lead;
         this.body = body;
         this.tag = tag;
         this.date = date;
         this.user = user;
+        this.views = 0;
+
     }
 
     public Article() {
@@ -92,6 +98,14 @@ public class Article {
 
     public void setDate(Calendar date) {
         this.date = date;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 
     public User getUser() {

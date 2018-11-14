@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Column } from 'bloomer/lib/grid/Column';
 import { Card } from 'bloomer/lib/components/Card/Card';
 import { CardContent } from 'bloomer/lib/components/Card/CardContent';
 import { Title } from 'bloomer/lib/elements/Title';
@@ -14,34 +13,30 @@ import { CardFooterItem } from 'bloomer/lib/components/Card/Footer/CardFooterIte
         const path = `/users/${user.id}`
 
 
-    return (
+        return (
         
-    <Card style= {{margin: 8}}>
-
-    <CardContent>
-      <Title>
-          {name}
-    </Title>
-    <Subtitle>
-      {type}
-    </Subtitle>
-  
-  <CardFooter>
-    <CardFooterItem>
-      
-       < Link to = {
-               {
-                pathname: path,
-                state: { 
-                   user: {user}
-                   }}}>   Sign In
-                 </Link>
-      
-    </CardFooterItem>
-    
-  </CardFooter>
-  </CardContent>
-</Card>
+        <Card style= {{margin: 8}}>
+            <CardContent>
+                <Title>
+                    {name}
+                </Title>
+                <Subtitle>
+                    {type}
+                </Subtitle>
+                <CardFooter>
+                    <CardFooterItem>
+                        < Link to = {
+                            {
+                            pathname: path,
+                            state: { 
+                            user: {user}
+                            }
+                            }
+                        }> Sign In </Link>
+                    </CardFooterItem>
+                </CardFooter>
+            </CardContent>
+        </Card>
     )
 }
 

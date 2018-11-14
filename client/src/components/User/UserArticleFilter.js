@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Container } from 'bloomer/lib/layout/Container';
-import { Control } from 'bloomer/lib/elements/Form/Control';
 import { Select } from 'bloomer/lib/elements/Form/Select';
 import { Label } from 'bloomer/lib/elements/Form/Label';
 
@@ -17,18 +16,14 @@ export default class UserArticleFilter extends Component {
     }
 
     filterTagsForSelectMenu() {
-        if (!this.props.articles) {
-            return;
-        }
+        if (!this.props.articles) {return null}
 
         const tags = [];
         this.props.articles.map((article) => {
-
-            if (!tags.includes(article.tag)) {
-                return tags.push(article.tag)
-            }
+            if (!tags.includes(article.tag)) { return tags.push(article.tag)}
             return null;
         })
+        
         return tags.map((tag, index) => {
             const uppercaseTag = tag.charAt(0).toUpperCase() + tag.slice(1); 
             return <option key = {index} value={tag}>{uppercaseTag}</option>
@@ -42,9 +37,7 @@ export default class UserArticleFilter extends Component {
 
     render () {
         
-        if (!this.props.articles) {
-            return null
-        }
+        if (!this.props.articles) { return null }
         const tagOptions = this.filterTagsForSelectMenu()
     
         return (

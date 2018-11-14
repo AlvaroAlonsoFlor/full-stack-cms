@@ -8,6 +8,7 @@ import java.util.List;
 
 @Projection(name="embedArticle", types = User.class)
 public interface EmbedArticle {
+
     Long getId();
     String getName();
     String getType();
