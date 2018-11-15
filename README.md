@@ -6,7 +6,7 @@ A content managment system project done in less than a week that handles blog po
 
 ## Group members
 
-Alison Babington, Foteini Ntaloumi and Alvaro Alonso
+Alison Babington(AlisonBabington), Foteini Ntaloumi(Fofiko) and Alvaro Alonso(VladmirVolgen)
 
 ## Tech stack
 
@@ -20,6 +20,3 @@ Alison Babington, Foteini Ntaloumi and Alvaro Alonso
 * Build a scalable product that can be easily extended
 * Deal with a considerable codebase
 * Work using Agile methodology
-
-
-
