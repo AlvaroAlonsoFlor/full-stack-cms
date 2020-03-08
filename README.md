@@ -20,3 +20,12 @@ Alison Babington(AlisonBabington), Foteini Ntaloumi(Fofiko) and Alvaro Alonso(Vl
 * Build a scalable product that can be easily extended
 * Deal with a considerable codebase
 * Work using Agile methodology
+
+## How to run the project
+
+### Database setup
+
+* Run the following Docker command: `docker run --name cms-postgres -p 5432:5432 -e POSTGRES_USERNAME=cms_admin -e POSTGRES_PASSWORD=admin  -d postgres`
+* Once you have run the docker container run: `docker exec -it cms-postgres bash`
+* Now log in into the db container: `psql -U postgres`
+* And create the database: `CREATE DATABASE cms;`
