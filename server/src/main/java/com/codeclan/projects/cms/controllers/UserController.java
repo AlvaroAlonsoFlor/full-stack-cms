@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    UserRepository userRepository;
+    final UserRepository userRepository;
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping(value = "/{id}/articles")
     public List<Article> getUserArticlesSorted(@PathVariable Long id) {
-        User user = new User();
-
         return userRepository.getUserArticlesSortedByDate(id);
     }
 }

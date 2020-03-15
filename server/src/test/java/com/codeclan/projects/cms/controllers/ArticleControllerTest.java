@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -35,11 +34,6 @@ public class ArticleControllerTest {
 
     private List<Article> articles = new ArrayList<>();
 
-    @BeforeEach
-    public void init() {
-        this.articles = createTestArticleList();
-    }
-
     @Test
     public void getArticlesByCategoryShouldReturnArticleList() throws Exception {
         when(repository.getArticlesByCategory("bananas")).thenReturn(articles);
@@ -47,7 +41,7 @@ public class ArticleControllerTest {
         mockMvc.perform(get("/articles/tag/bananas")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
     @Test
@@ -57,22 +51,8 @@ public class ArticleControllerTest {
         mockMvc.perform(get("/articles/sorted")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
-    private List<Article> createTestArticleList () {
-        User user1 = new User("Testy McFace", "secret", UserType.EDITOR);
-        Calendar date1 = Calendar.getInstance();
-        date1.set(2018,12,10);
-        Article article1 = new Article ("title", "header", "body", "bananas", date1, user1);
-        article1.setViews(1);
-
-
-        ArrayList<Article> articles = new ArrayList<>();
-        articles.add(article1);
-
-        return articles;
-
-    }
 
 }
